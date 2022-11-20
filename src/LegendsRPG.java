@@ -72,19 +72,6 @@ public class LegendsRPG extends GameBoard{
         this.gameState.handleNextState(this);
     }
 
-//    public void displayHeroes() {
-//        System.out.print("Your party is spawned at location: " );
-//        party.printLoc();
-//        Utility.newLine();
-//        Utility.newLine();
-//        System.out.println("You have chosen the following heroes:" );
-//
-//        HeroData.getHeader();
-//        for(Character hero: party.getParty().getLegion()){
-//            hero.printCharacter();
-//        }
-//    }
-
     public int getMaxHeroLevel(){
         int maxLevel = 0;
         for(Character character: this.party.getParty().getLegion()){
