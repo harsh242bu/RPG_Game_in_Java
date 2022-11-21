@@ -1,14 +1,17 @@
-// Legends Monster and heroes game
-public class LegendsRPG extends GameBoard{
+public class ValorRPG extends GameBoard{
     private PartyPiece party;
+    private Party Heroes;
+    private Party Monsters;
     private final Location startLoc = new Location(0,0);
-    private final static int battleChance = 40;
-    private GameState gameState;
+    private final int TOTAL_PLAYERS = 3;
+//    private final static int battleChance = 40;
+    private TurnState turnState;
+    private ActionState actionState;
     private MonsterFactory monsterFactory;
     private int heroTurnIndex;
     private int monsterTurnIndex;
 
-    LegendsRPG(int rows, int cols){
+    ValorRPG(int rows, int cols){
         super(rows, cols);
         this.party = new PartyPiece("X", startLoc);
 
@@ -19,10 +22,10 @@ public class LegendsRPG extends GameBoard{
             }
         }
         getCell(startLoc).addParty(party);
-        this.gameState = new MoveState();
+        this.turnState = new HeroesTurn();
         this.monsterFactory = new MonsterFactory();
     }
-    LegendsRPG(int size){
+    ValorRPG(int size){
         this(size, size);
     }
 
@@ -46,12 +49,52 @@ public class LegendsRPG extends GameBoard{
         return startLoc;
     }
 
-    public GameState getGameState() {
-        return gameState;
+    public TurnState getTurnState() {
+        return turnState;
     }
 
-    public void setGameState(GameState gameState) {
-        this.gameState = gameState;
+    public ActionState getActionState() {
+        return actionState;
+    }
+
+    public void setActionState(ActionState actionState) {
+        this.actionState = actionState;
+    }
+
+    public void setTurnState(TurnState turnState) {
+        this.turnState = turnState;
+    }
+
+    public Party getHeroes() {
+        return Heroes;
+    }
+
+    public void setHeroes(Party heroes) {
+        Heroes = heroes;
+    }
+
+    public Party getMonsters() {
+        return Monsters;
+    }
+
+    public void setMonsters(Party monsters) {
+        Monsters = monsters;
+    }
+
+    public int getHeroTurnIndex() {
+        return heroTurnIndex;
+    }
+
+    public void setHeroTurnIndex(int heroTurnIndex) {
+        this.heroTurnIndex = heroTurnIndex;
+    }
+
+    public int getMonsterTurnIndex() {
+        return monsterTurnIndex;
+    }
+
+    public void setMonsterTurnIndex(int monsterTurnIndex) {
+        this.monsterTurnIndex = monsterTurnIndex;
     }
 
     @Override
@@ -64,12 +107,17 @@ public class LegendsRPG extends GameBoard{
 
     @Override
     public void startGame() {
-        this.setState(new MoveState());
+        this.setNextTurn(new HeroesTurn());
     }
 
-    public void setState(GameState state) {
-        setGameState(state);
-        this.gameState.handleNextState(this);
+    public void setNextTurn(TurnState state){
+        this.setTurnState(state);
+        this.turnState.handleNextTurn(this);
+    }
+
+    public void setNextAction(ActionState state){
+        this.setActionState(state);
+        this.actionState.handleAction(this);
     }
 
     public int getMaxHeroLevel(){
@@ -82,14 +130,9 @@ public class LegendsRPG extends GameBoard{
         return maxLevel;
     }
 
-    public void movePiece(Location newLoc){
-
-        this.setState(new MoveState());
-    }
-
-    public boolean battleProbability(){
-        return Utility.checkProbability(battleChance);
-    }
+//    public boolean battleProbability(){
+//        return Utility.checkProbability(battleChance);
+//    }
 
     public Location getLocation(String move) {
         Location currLoc = party.getLoc();

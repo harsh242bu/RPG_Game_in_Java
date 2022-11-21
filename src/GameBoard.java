@@ -66,5 +66,5 @@ public abstract class GameBoard {
     public abstract void setupGame();
     public abstract void startGame();
 
-    public abstract void setState(GameState state);
+//    public abstract void setState(GameState state);
 }

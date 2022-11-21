@@ -10,24 +10,21 @@ public class MoveState implements GameState{
         game.printBoard();
         GameMovesData.displayMoveOptions();
         String move;
-//        do {
-            move = Utility.validateCharInput(GameMovesData.movesList);
-            if (move.equals(GameMovesData.I)) {
-                // print info
-                System.out.println("Heroes info:");
-                HeroData.getHeader();
-                for(Character character: party.getParty().getLegion()){
-                    Hero tempHero = (Hero)character;
-                    tempHero.printCharacter();
-                }
-//                game.printBoard();
-                game.setState(new MoveState());
-//                GameData.displayMoveOptions();
+
+        move = Utility.validateCharInput(GameMovesData.movesList);
+        if (move.equals(GameMovesData.I)) {
+            // print info
+            System.out.println("Heroes info:");
+            HeroData.getHeader();
+            for(Character character: party.getParty().getLegion()){
+                Hero tempHero = (Hero)character;
+                tempHero.printCharacter();
             }
-            else if (move.equals(GameMovesData.Q)) {
-                game.setState(new QuitGame());
-            }
-//        }while(move.equals(GameData.I));
+            game.setState(new MoveState());
+        }
+        else if (move.equals(GameMovesData.Q)) {
+            game.setState(new QuitGame());
+        }
 
         Location nextLoc = game.getLocation(move);
         Cell nextCell = game.getCell(nextLoc);
@@ -52,10 +49,9 @@ public class MoveState implements GameState{
                     System.out.println("Monsters have arrived!!");
                     Battle battle = new Battle(monsters, party.getParty());
 
-//                    Party newParty =
                     battle.startBattle();
                     party.setParty(battle.getActiveHeroes());
-                    // How to calculate
+
                     if(battle.isHeroWon()){
                         game.setState(new MoveState());
                     }
@@ -63,8 +59,7 @@ public class MoveState implements GameState{
                         System.out.println("All heroes died. Quitting game now...");
                         game.setState(new QuitGame());
                     }
-                    // If battle won -> moveState
-                    // If lost
+
                 }
                 game.setState(new MoveState());
                 break;
