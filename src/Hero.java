@@ -114,6 +114,11 @@ public class Hero extends Character implements Modifiable{
         this.gold = gold;
     }
 
+    @Override
+    public boolean isAlive(){
+        return (getHp() > 0);
+    }
+
     public void changeMoney(int value){
         int newVal = getMoney() + value;
         this.gold.setAmount(newVal);

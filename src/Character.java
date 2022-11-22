@@ -37,6 +37,8 @@ public abstract class Character implements Modifiable{
 
     }
 
+    public abstract boolean isAlive();
+
     public abstract void printCharacter();
 
     public abstract Attack getAttack();

@@ -24,6 +24,8 @@ public class ValorRPG extends GameBoard{
         getCell(startLoc).addParty(party);
         this.turnState = new HeroesTurn();
         this.monsterFactory = new MonsterFactory();
+        this.heroTurnIndex = 0;
+        this.monsterTurnIndex = 0;
     }
     ValorRPG(int size){
         this(size, size);
@@ -119,6 +121,24 @@ public class ValorRPG extends GameBoard{
         this.setActionState(state);
         this.actionState.handleAction(this);
     }
+
+    public boolean isHeroAlive(){
+        return this.getHeroes().get(getHeroTurnIndex()).isAlive();
+    }
+
+    public boolean isMonsterAlive(){
+        return this.getMonsters().get(getMonsterTurnIndex()).isAlive();
+    }
+
+    public boolean allHeroesAlive(){
+        
+    }
+
+    public void removeHero(){
+        this.getHeroes().remove(getHeroTurnIndex());
+    }
+
+    public void removeMonster(){}
 
     public int getMaxHeroLevel(){
         int maxLevel = 0;

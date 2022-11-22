@@ -1,7 +1,7 @@
 // Concrete implementation of battle state. Used to handle hero's turn in the battle
 public class HeroTurn implements BattleState{
     @Override
-    public void handleTurn(Battle battle) {
+    public void handleTurn(BattleOld battle) {
         if(battle.checkHeroesAlive()){
             Utility.newLine();
             System.out.println("Hero turn now ---");

@@ -1,7 +1,7 @@
 // Concrete implementation of BattleState. Used to handle the quitting of the battle.
 public class QuitBattle implements BattleState{
     @Override
-    public void handleTurn(Battle battle) {
+    public void handleTurn(BattleOld battle) {
         System.out.println("Quitting the battle ---");
         // increase their hp
         // merge faint and active

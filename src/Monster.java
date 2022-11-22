@@ -41,6 +41,11 @@ public class Monster extends Character implements Modifiable{
     }
 
     @Override
+    public boolean isAlive(){
+        return (getDefense() > 0);
+    }
+
+    @Override
     public void printCharacter() {
 //        Name level damage defense dodge chance
         System.out.print(getName() + "\t");

@@ -17,6 +17,11 @@ Temp notes:
 1. Since we already had CellFactoryGenerator, we crerated a new factory to generate specific cell pattern
 2. 
 
+Action State -
+    ChooseAction
+    MoveAction
+    
+
 
 
 ## Files

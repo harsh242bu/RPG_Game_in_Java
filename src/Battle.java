@@ -1,42 +1,28 @@
-// Battle class to initialize and start the battle
 public class Battle {
-    private Party monsters;
-    private Party activeHeroes;
-    private Party faintHeroes;
+    private Monster monster;
+    private Hero hero;
     private BattleState battleState;
-    private boolean heroWon;
 
-    Battle(Party monsters, Party heroes){
-        this.monsters = monsters;
-        this.activeHeroes = heroes;
-        this.faintHeroes = new Party();
-        this.battleState = new HeroTurn();
-        this.heroWon = false;
+    Battle(Hero hero, Monster monster){
+        this.hero = hero;
+        this.monster = monster;
         declareBattle();
     }
 
-    public Party getMonsters() {
-        return monsters;
+    public Monster getMonster() {
+        return monster;
     }
 
-    public void setMonsters(Party monsters) {
-        this.monsters = monsters;
+    public void setMonster(Monster monster) {
+        this.monster = monster;
     }
 
-    public Party getActiveHeroes() {
-        return activeHeroes;
+    public Hero getHero() {
+        return hero;
     }
 
-    public void setActiveHeroes(Party activeHeroes) {
-        this.activeHeroes = activeHeroes;
-    }
-
-    public Party getFaintHeroes() {
-        return faintHeroes;
-    }
-
-    public void setFaintHeroes(Party faintHeroes) {
-        this.faintHeroes = faintHeroes;
+    public void setHero(Hero hero) {
+        this.hero = hero;
     }
 
     public BattleState getBattleState() {
@@ -47,80 +33,19 @@ public class Battle {
         this.battleState = battleState;
     }
 
-    public boolean isHeroWon() {
-        return heroWon;
-    }
-
-    public void setHeroWon(boolean heroWon) {
-        this.heroWon = heroWon;
-    }
-
-    public void setState(BattleState state){
-        setBattleState(state);
-        this.battleState.handleTurn(this);
+    public void setAttack(BattleState state){
+        this.setBattleState(state);
+        this.battleState.handleAttack(this);
     }
 
     private void declareBattle() {
         System.out.println("You are fighting against the following monsters:");
         MonsterData.getMonsterHeader();
-        for(Character monster : this.monsters.getLegion()){
-            monster.printCharacter();
-        }
+        monster.printCharacter();
     }
 
-//    public boolean checkHeroesAlive(){
-//        for(Character character: activeHeroes.getLegion()){
-//            Hero hero = (Hero)character;
-//            if(hero.getAttribute(Modifiable.HP) <= 0){
-//                activeHeroes.remove(hero);
-//                faintHeroes.addCharacter(hero);
-//            }
-//        }
-//        if(activeHeroes.size() == 0) { return false; }
-//        else { return true; }
-//    }
-
-    public boolean checkHeroesAlive(){
-        Party active = new Party();
-        for(Character character: activeHeroes.getLegion()){
-            Hero hero = (Hero)character;
-            if(hero.getAttribute(Modifiable.HP) > 0){
-//                active.remove(hero);
-                active.addCharacter(hero);
-            }
-        }
-        if(active.size() == 0) { return false; }
-        else { return true; }
+    public void startBattle(BattleState attackState) {
+        this.setAttack(attackState);
     }
 
-    public boolean checkMonstersAlive(){
-        Party newMonsters = new Party();
-        for(Character character: monsters.getLegion()){
-            Monster monster = (Monster)character;
-            if(monster.getAttribute(Modifiable.DEFENSE) > 0){
-                newMonsters.addCharacter(monster);
-            }
-        }
-        if(newMonsters.size() == 0) { return false; }
-        else { return true; }
-    }
-
-//    public boolean checkMonstersAlive(){
-//        for(Character character: monsters.getLegion()){
-//            Monster monster = (Monster)character;
-//            if(monster.getAttribute(Modifiable.DEFENSE) <= 0){
-//                monsters.remove(monster);
-//            }
-//        }
-//        if(monsters.size() == 0) { return false; }
-//        else { return true; }
-//    }
-
-    public void startBattle() {
-        setState(new HeroTurn());
-    }
-
-    public int getMonsterMaxLevel(){
-        return getMonsters().getMaxLevel();
-    }
 }

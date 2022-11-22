@@ -47,7 +47,7 @@ public class MoveState implements GameState{
                         monsters.addCharacter(monster);
                     }
                     System.out.println("Monsters have arrived!!");
-                    Battle battle = new Battle(monsters, party.getParty());
+                    BattleOld battle = new BattleOld(monsters, party.getParty());
 
                     battle.startBattle();
                     party.setParty(battle.getActiveHeroes());
