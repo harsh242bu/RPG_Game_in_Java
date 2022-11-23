@@ -1,5 +1,5 @@
 // Concrete implementation of Battle state interface. Used to implement monster's turn in the battle
-public class MonsterTurn implements BattleState{
+public class MonsterTurn implements BattleStateOld{
     @Override
     public void handleTurn(BattleOld battle) {
         if(battle.checkMonstersAlive()){

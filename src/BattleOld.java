@@ -3,7 +3,7 @@ public class BattleOld {
     private Party monsters;
     private Party activeHeroes;
     private Party faintHeroes;
-    private BattleState battleState;
+    private BattleStateOld battleState;
     private boolean heroWon;
 
     BattleOld(Party monsters, Party heroes){
@@ -39,11 +39,11 @@ public class BattleOld {
         this.faintHeroes = faintHeroes;
     }
 
-    public BattleState getBattleState() {
+    public BattleStateOld getBattleState() {
         return battleState;
     }
 
-    public void setBattleState(BattleState battleState) {
+    public void setBattleState(BattleStateOld battleState) {
         this.battleState = battleState;
     }
 
@@ -55,7 +55,7 @@ public class BattleOld {
         this.heroWon = heroWon;
     }
 
-    public void setState(BattleState state){
+    public void setState(BattleStateOld state){
         setBattleState(state);
         this.battleState.handleTurn(this);
     }

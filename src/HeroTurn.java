@@ -1,5 +1,5 @@
 // Concrete implementation of battle state. Used to handle hero's turn in the battle
-public class HeroTurn implements BattleState{
+public class HeroTurn implements BattleStateOld{
     @Override
     public void handleTurn(BattleOld battle) {
         if(battle.checkHeroesAlive()){

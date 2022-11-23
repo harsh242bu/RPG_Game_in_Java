@@ -1,4 +1,4 @@
-public class AttackAction implements ActionState{
+public class AttackHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {
         boolean monsterNearby = true; // change it later
@@ -16,7 +16,7 @@ public class AttackAction implements ActionState{
         }
         else{
             System.out.println("Cannot attack! No monster nearby");
-            game.setNextAction(new ChooseAction());
+            game.setHeroNextAction(new ChooseHeroAction());
         }
     }
 }

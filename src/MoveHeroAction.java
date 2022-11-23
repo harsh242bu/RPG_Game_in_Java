@@ -1,4 +1,4 @@
-public class ChooseAction implements ActionState{
+public class MoveHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {
 

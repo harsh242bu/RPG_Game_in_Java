@@ -1,5 +1,4 @@
-public class TeleportAction implements ActionState{
-
+public class ChangeItemHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {
 

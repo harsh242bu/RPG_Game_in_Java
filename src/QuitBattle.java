@@ -1,5 +1,5 @@
 // Concrete implementation of BattleState. Used to handle the quitting of the battle.
-public class QuitBattle implements BattleState{
+public class QuitBattle implements BattleStateOld{
     @Override
     public void handleTurn(BattleOld battle) {
         System.out.println("Quitting the battle ---");

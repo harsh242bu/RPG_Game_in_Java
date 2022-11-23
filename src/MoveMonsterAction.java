@@ -1,4 +1,4 @@
-public class RecallAction implements ActionState{
+public class MoveMonsterAction implements MonsterActionState{
     @Override
     public void handleAction(ValorRPG game) {
 

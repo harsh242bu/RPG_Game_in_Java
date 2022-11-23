@@ -6,7 +6,8 @@ public class ValorRPG extends GameBoard{
     private final int TOTAL_PLAYERS = 3;
 //    private final static int battleChance = 40;
     private TurnState turnState;
-    private ActionState actionState;
+    private HeroActionState heroActionState;
+    private MonsterActionState monsterActionState;
     private MonsterFactory monsterFactory;
     private int heroTurnIndex;
     private int monsterTurnIndex;
@@ -55,12 +56,20 @@ public class ValorRPG extends GameBoard{
         return turnState;
     }
 
-    public ActionState getActionState() {
-        return actionState;
+    public HeroActionState getHeroActionState() {
+        return heroActionState;
     }
 
-    public void setActionState(ActionState actionState) {
-        this.actionState = actionState;
+    public void setHeroActionState(HeroActionState heroActionState) {
+        this.heroActionState = heroActionState;
+    }
+
+    public MonsterActionState getMonsterActionState() {
+        return monsterActionState;
+    }
+
+    public void setMonsterActionState(MonsterActionState monsterActionState) {
+        this.monsterActionState = monsterActionState;
     }
 
     public void setTurnState(TurnState turnState) {
@@ -117,9 +126,14 @@ public class ValorRPG extends GameBoard{
         this.turnState.handleNextTurn(this);
     }
 
-    public void setNextAction(ActionState state){
-        this.setActionState(state);
-        this.actionState.handleAction(this);
+    public void setHeroNextAction(HeroActionState state){
+        this.setHeroActionState(state);
+        this.heroActionState.handleAction(this);
+    }
+
+    public void setMonsterNextAction(MonsterActionState state){
+        this.setMonsterActionState(state);
+        this.monsterActionState.handleAction(this);
     }
 
     public boolean isHeroAlive(){
@@ -130,15 +144,35 @@ public class ValorRPG extends GameBoard{
         return this.getMonsters().get(getMonsterTurnIndex()).isAlive();
     }
 
-    public boolean allHeroesAlive(){
-        
+    public boolean anyHeroesAlive(){
+        boolean alive = false;
+        for(Character ch: getHeroes().getLegion()){
+            if(ch.isAlive()){
+                alive = true;
+                break;
+            }
+        }
+        return alive;
+    }
+
+    public boolean anyMonstersAlive(){
+        boolean alive = false;
+        for(Character ch: getMonsters().getLegion()){
+            if(ch.isAlive()){
+                alive = true;
+                break;
+            }
+        }
+        return alive;
     }
 
     public void removeHero(){
         this.getHeroes().remove(getHeroTurnIndex());
     }
 
-    public void removeMonster(){}
+    public void removeMonster(){
+        this.getMonsters().remove(getMonsterTurnIndex());
+    }
 
     public int getMaxHeroLevel(){
         int maxLevel = 0;

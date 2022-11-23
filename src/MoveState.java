@@ -23,7 +23,7 @@ public class MoveState implements GameState{
             game.setState(new MoveState());
         }
         else if (move.equals(GameMovesData.Q)) {
-            game.setState(new QuitGame());
+            game.setState(new QuitGameOld());
         }
 
         Location nextLoc = game.getLocation(move);
@@ -42,7 +42,7 @@ public class MoveState implements GameState{
                         Monster monster = game.getMonsterFactory().getMonster(maxLevel);
                         if(monster == null){
                             System.out.println("Not enough monsters to fight!!");
-                            game.setState(new QuitGame());
+                            game.setState(new QuitGameOld());
                         }
                         monsters.addCharacter(monster);
                     }
@@ -57,7 +57,7 @@ public class MoveState implements GameState{
                     }
                     else{
                         System.out.println("All heroes died. Quitting game now...");
-                        game.setState(new QuitGame());
+                        game.setState(new QuitGameOld());
                     }
 
                 }
