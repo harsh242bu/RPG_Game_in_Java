@@ -4,7 +4,7 @@ public class HeroesTurn implements TurnState{
     public void handleNextTurn(ValorRPG game) {
         // check heros alive
         // check hero alive else remove from the game
-        if(game.anyMonstersAlive() && game.anyHeroesAlive()){
+        if(!game.anyMonsterReachedNexus() && !game.anyHeroReachedNexus()){
             int heroIndex = game.getHeroTurnIndex();
             if(game.isHeroAlive()){
                 game.setHeroNextAction(new ChooseHeroAction());

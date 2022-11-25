@@ -96,7 +96,7 @@ public class LegendsRPG extends GameBoard{
         Location newLoc = getLocationFromMove(move, currLoc);
         while(!isValidLocation(newLoc)){
             System.out.println("Location out of bounds!! Enter again:");
-            move = Utility.validateCharInput(GameMovesData.movesList);
+            move = Utility.validateCharInput(GameStaticData.movesList);
             newLoc = getLocationFromMove(move, currLoc);
         }
         return newLoc;

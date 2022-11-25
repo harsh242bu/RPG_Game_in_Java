@@ -8,11 +8,11 @@ public class MoveState implements GameState{
         Cell oldCell = game.getCell(oldLoc);
 
         game.printBoard();
-        GameMovesData.displayMoveOptions();
+        GameStaticData.displayMoveOptions();
         String move;
 
-        move = Utility.validateCharInput(GameMovesData.movesList);
-        if (move.equals(GameMovesData.I)) {
+        move = Utility.validateCharInput(GameStaticData.movesList);
+        if (move.equals(GameStaticData.I)) {
             // print info
             System.out.println("Heroes info:");
             HeroData.getHeader();
@@ -22,7 +22,7 @@ public class MoveState implements GameState{
             }
             game.setState(new MoveState());
         }
-        else if (move.equals(GameMovesData.Q)) {
+        else if (move.equals(GameStaticData.Q)) {
             game.setState(new QuitGameOld());
         }
 

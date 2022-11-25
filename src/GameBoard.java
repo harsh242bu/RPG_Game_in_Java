@@ -51,13 +51,13 @@ public abstract class GameBoard {
         int y = loc.getY();
 
         switch(move){
-            case(GameMovesData.W):
+            case(GameStaticData.W):
                 return new Location(x-1, y);
-            case(GameMovesData.A):
+            case(GameStaticData.A):
                 return new Location(x, y-1);
-            case(GameMovesData.S):
+            case(GameStaticData.S):
                 return new Location(x+1,y);
-            case(GameMovesData.D):
+            case(GameStaticData.D):
                 return new Location(x,y+1);
         }
         return loc;

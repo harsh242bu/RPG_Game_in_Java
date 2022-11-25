@@ -1,10 +1,11 @@
-public class ValorRPG extends GameBoard{
-    private PartyPiece party;
+public class ValorRPG {
+//    private PartyPiece party;
     private Party Heroes;
     private Party Monsters;
+    private Board gameBoad;
     private final Location startLoc = new Location(0,0);
     private final int TOTAL_PLAYERS = 3;
-//    private final static int battleChance = 40;
+    private final int monsterRandomMoveChance = 20;
     private TurnState turnState;
     private HeroActionState heroActionState;
     private MonsterActionState monsterActionState;
@@ -12,25 +13,21 @@ public class ValorRPG extends GameBoard{
     private int heroTurnIndex;
     private int monsterTurnIndex;
 
-    ValorRPG(int rows, int cols){
-        super(rows, cols);
-        this.party = new PartyPiece("X", startLoc);
+    ValorRPG(){
+//        super(rows, cols);
+        this.gameBoad = new Board();
 
-        BalancedCellFactory factory = new BalancedCellFactory();
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
-                matrix[i][j] = factory.generateCell();
-            }
-        }
+        this.party = new PartyPiece("X", startLoc);
         getCell(startLoc).addParty(party);
+
         this.turnState = new HeroesTurn();
         this.monsterFactory = new MonsterFactory();
         this.heroTurnIndex = 0;
         this.monsterTurnIndex = 0;
     }
-    ValorRPG(int size){
-        this(size, size);
-    }
+//    ValorRPG(int size){
+//        this(size, size);
+//    }
 
     public MonsterFactory getMonsterFactory() {
         return monsterFactory;
@@ -40,12 +37,12 @@ public class ValorRPG extends GameBoard{
         this.monsterFactory = monsterFactory;
     }
 
-    public PartyPiece getParty() {
-        return party;
+    public Board getGameBoad() {
+        return gameBoad;
     }
 
-    public void setParty(PartyPiece party) {
-        this.party = party;
+    public void setGameBoad(Board gameBoad) {
+        this.gameBoad = gameBoad;
     }
 
     public Location getStartLoc() {
@@ -70,6 +67,10 @@ public class ValorRPG extends GameBoard{
 
     public void setMonsterActionState(MonsterActionState monsterActionState) {
         this.monsterActionState = monsterActionState;
+    }
+
+    public int getMonsterRandomMoveChance() {
+        return monsterRandomMoveChance;
     }
 
     public void setTurnState(TurnState turnState) {
@@ -116,7 +117,6 @@ public class ValorRPG extends GameBoard{
         GameSetup.displayHeroes(getParty());
     }
 
-    @Override
     public void startGame() {
         this.setNextTurn(new HeroesTurn());
     }
@@ -137,33 +137,33 @@ public class ValorRPG extends GameBoard{
     }
 
     public boolean isHeroAlive(){
-        return this.getHeroes().get(getHeroTurnIndex()).isAlive();
+        return this.getHero().isAlive();
     }
 
     public boolean isMonsterAlive(){
-        return this.getMonsters().get(getMonsterTurnIndex()).isAlive();
+        return this.getMonster().isAlive();
     }
 
-    public boolean anyHeroesAlive(){
-        boolean alive = false;
-        for(Character ch: getHeroes().getLegion()){
-            if(ch.isAlive()){
-                alive = true;
-                break;
-            }
-        }
-        return alive;
+    public boolean anyHeroReachedNexus(){
+//        boolean alive = false;
+//        for(Character ch: getHeroes().getLegion()){
+//            if(ch.isAlive()){
+//                alive = true;
+//                break;
+//            }
+//        }
+        return false;
     }
 
-    public boolean anyMonstersAlive(){
-        boolean alive = false;
-        for(Character ch: getMonsters().getLegion()){
-            if(ch.isAlive()){
-                alive = true;
-                break;
-            }
-        }
-        return alive;
+    public boolean anyMonsterReachedNexus(){
+//        boolean alive = false;
+//        for(Character ch: getMonsters().getLegion()){
+//            if(ch.isAlive()){
+//                alive = true;
+//                break;
+//            }
+//        }
+        return false;
     }
 
     public void removeHero(){
@@ -172,6 +172,14 @@ public class ValorRPG extends GameBoard{
 
     public void removeMonster(){
         this.getMonsters().remove(getMonsterTurnIndex());
+    }
+
+    public Hero getHero(){
+        return (Hero)this.getHeroes().get(getHeroTurnIndex());
+    }
+
+    public Monster getMonster(){
+        return (Monster)this.getMonsters().get(getMonsterTurnIndex());
     }
 
     public int getMaxHeroLevel(){
@@ -188,14 +196,14 @@ public class ValorRPG extends GameBoard{
 //        return Utility.checkProbability(battleChance);
 //    }
 
-    public Location getLocation(String move) {
-        Location currLoc = party.getLoc();
-        Location newLoc = getLocationFromMove(move, currLoc);
-        while(!isValidLocation(newLoc)){
-            System.out.println("Location out of bounds!! Enter again:");
-            move = Utility.validateCharInput(GameMovesData.movesList);
-            newLoc = getLocationFromMove(move, currLoc);
-        }
-        return newLoc;
-    }
+//    public Location getLocation(String move) {
+//        Location currLoc = party.getLoc();
+//        Location newLoc = getLocationFromMove(move, currLoc);
+//        while(!isValidLocation(newLoc)){
+//            System.out.println("Location out of bounds!! Enter again:");
+//            move = Utility.validateCharInput(GameMovesData.movesList);
+//            newLoc = getLocationFromMove(move, currLoc);
+//        }
+//        return newLoc;
+//    }
 }

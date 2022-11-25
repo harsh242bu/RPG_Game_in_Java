@@ -2,9 +2,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        GameBoard legendsGame = new LegendsRPG(8);
+        ValorRPG valorGame = new ValorRPG();
 
-        legendsGame.setupGame();
-        legendsGame.startGame();
+        valorGame.setupGame();
+        valorGame.startGame();
     }
 }

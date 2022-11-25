@@ -3,7 +3,7 @@ public class AttackHeroAction implements HeroActionState {
     public void handleAction(ValorRPG game) {
         boolean monsterNearby = true; // change it later
         if(monsterNearby){
-            Hero hero = (Hero)game.getHeroes().get(game.getHeroTurnIndex());
+            Hero hero = game.getHero();
             Monster monster = new Monster(null, 0, 0, 0,0); // (Monster)game.getNearbyMonster();
 
             Battle battle = new Battle(hero, monster);
@@ -19,4 +19,21 @@ public class AttackHeroAction implements HeroActionState {
             game.setHeroNextAction(new ChooseHeroAction());
         }
     }
+
+//    public static void main(String[] args) {
+//        new GameSetup().loadData();
+//        HeroFactory heroFactory = new HeroFactory();
+//        heroFactory.initializeHeroes();
+//
+//
+//        MonsterFactory monsterFactory = new MonsterFactory();
+//
+//        Hero hero = WarriorData.getHero(0);
+//        Monster monster = monsterFactory.getMonster(1);
+//
+//        Battle battle = new Battle(hero, monster);
+//        // check monster alive else remove from the game
+//
+//        battle.startBattle(new HeroAttack());
+//    }
 }

@@ -3,7 +3,7 @@ public class MonstersTurn implements TurnState{
     @Override
     public void handleNextTurn(ValorRPG game) {
         // check monsters alive else remove from the game
-        if(game.anyMonstersAlive() && game.anyHeroesAlive()){
+        if(!game.anyMonsterReachedNexus() && !game.anyHeroReachedNexus()){
             int monsterIndex = game.getMonsterTurnIndex();
             if(game.isMonsterAlive()){
                 boolean heroNearby = true;

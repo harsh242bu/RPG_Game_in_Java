@@ -31,7 +31,7 @@ public class Hero extends Character implements Modifiable{
         this.weapon = new Weapon("Bare_Hands", 0, 1, 180, 2);
         this.backPack = new MarketInventory();
         this.armor = new Armor("None", 0, 1,0);
-//        addItemsToTest();
+        addItemsToTest();
     }
 
     public void addItemsToTest(){
@@ -136,6 +136,22 @@ public class Hero extends Character implements Modifiable{
         this.backPack = backPack;
     }
 
+    public boolean hasWeapons(){
+        return backPack.hasWeapons();
+    }
+
+    public boolean hasSpells(){
+        return backPack.hasSpells();
+    }
+
+    public boolean hasPotions(){
+        return backPack.hasPotions();
+    }
+
+    public boolean hasArmors(){
+        return backPack.hasArmors();
+    }
+
     public int getAttribute(int type){
         switch (type){
             case(MANA):
@@ -159,32 +175,90 @@ public class Hero extends Character implements Modifiable{
         }
     }
 
-    public int getAction(){
+//    public int getAction(){
+//        List<Integer> choiceList = new ArrayList<Integer>();
+//        System.out.println("Choose one of the actions:");
+//        System.out.println("1. Attack using " + getWeapon().getName() + " weapon");
+//        choiceList.add(1);
+//        if(backPack.getSpells().getSize() > 0){
+//            System.out.println("2. Attack using a spell from the inventory");
+//            choiceList.add(2);
+//        }
+//        if(backPack.getPotions().getSize() > 0){
+//            System.out.println("3. Attack using a potion from the inventory");
+//            choiceList.add(3);
+//        }
+//        if(backPack.getWeapons().getSize() > 0){
+//            System.out.println("4. Equip a weapon from the inventory");
+//            choiceList.add(4);
+//        }
+//        if(backPack.getArmors().getSize() > 0){
+//            System.out.println("5. Equip a armor from the inventory");
+//            choiceList.add(5);
+//        }
+//
+//        System.out.println("6. Check out heroes info");
+//        choiceList.add(6);
+//
+//        return Utility.intInputFromList(choiceList);
+//    }
+
+    public int getAction() {
         List<Integer> choiceList = new ArrayList<Integer>();
         System.out.println("Choose one of the actions:");
-        System.out.println("1. Attack using " + getWeapon().getName() + " weapon");
         choiceList.add(1);
-        if(backPack.getSpells().getSize() > 0){
-            System.out.println("2. Attack using a spell from the inventory");
+        if (backPack.getSpells().getSize() > 0) {
+
             choiceList.add(2);
         }
-        if(backPack.getPotions().getSize() > 0){
-            System.out.println("3. Attack using a potion from the inventory");
+        if (backPack.getPotions().getSize() > 0) {
+
             choiceList.add(3);
         }
-        if(backPack.getWeapons().getSize() > 0){
-            System.out.println("4. Equip a weapon from the inventory");
+        if (backPack.getWeapons().getSize() > 0) {
+
             choiceList.add(4);
         }
-        if(backPack.getArmors().getSize() > 0){
-            System.out.println("5. Equip a armor from the inventory");
+        if (backPack.getArmors().getSize() > 0) {
+
             choiceList.add(5);
         }
 
-        System.out.println("6. Check out heroes info");
+
         choiceList.add(6);
 
-        return Utility.intInputFromList(choiceList);
+        for (int i = 0; i < choiceList.size(); i++) {
+            System.out.println((i + 1) + ": " + getActionString(choiceList.get(i)));
+        }
+        int choice = Utility.intInputFromList(choiceList);
+
+
+        return choiceList.get(choice - 1);
+    }
+
+    public String getActionString(int input) {
+        switch (input) {
+            case 1:
+                return "Attack using " + getWeapon().getName() + " weapon";
+
+            case 2:
+                return "Attack using a spell from the inventory";
+
+            case 3:
+                return "Attack using a potion from the inventory";
+
+            case 4:
+                return "Equip a weapon from the inventory";
+
+            case 5:
+                return "Equip a armor from the inventory";
+
+            case 6:
+                return "Check out heroes info";
+
+            default:
+                return null;
+        }
     }
 
     @Override
@@ -253,10 +327,10 @@ public class Hero extends Character implements Modifiable{
                 }
                 case (HeroAttackOptions.SHOW_INFO): {
                     printHeroDetails();
-                    return null;
+//                    return null;
                 }
             }
-        } while(action == 6);
+        } while(action == HeroAttackOptions.SHOW_INFO);
         return null;
     }
 

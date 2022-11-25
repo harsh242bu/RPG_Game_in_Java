@@ -3,7 +3,7 @@
 public interface Modifiable {
     // mana/strength/agility/dexterity/starting money/starting experience
 
-    int[] HERO_ATTRIBUTES = {1, 2, 3, 4, 5, 6};
+    int[] HERO_ATTRIBUTES = {1, 2, 3, 4, 5, 6, 7};
     int[] MONSTER_ATTRIBUTES = {10, 9, 8, 3};
     int[] ALL_ATTRIBUTES = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 

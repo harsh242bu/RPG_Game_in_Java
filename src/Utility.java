@@ -8,6 +8,15 @@ public class Utility {
         }
         System.out.print("+\n");
     }
+
+    public static void printStrLn(String str){
+        System.out.println(str);
+    }
+
+    public static void printStr(String str){
+        System.out.print(str);
+    }
+
     public static void newLine(){
         System.out.println();
     }
@@ -18,6 +27,7 @@ public class Utility {
     }
 
     public static int intInput(int start, int end){
+        //  start included, end not included
         Scanner scn = new Scanner(System.in);
         int input = scn.nextInt();
         while(input < start || input >= end){
@@ -143,5 +153,9 @@ public class Utility {
             return true;
         }
         else return false;
+    }
+
+    public static void enterNumberPrompt(){
+        printStr("Enter a number: ");
     }
 }

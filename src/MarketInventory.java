@@ -87,4 +87,20 @@ public class MarketInventory {
     public void removeSpell(Spell item) { this.spells.remove(item); }
 
     public void removePotion(Potion item) { this.potions.remove(item); }
+
+    public boolean hasWeapons(){
+        return (getWeapons().getSize() > 0);
+    }
+
+    public boolean hasSpells(){
+        return (getSpells().getSize() > 0);
+    }
+
+    public boolean hasPotions(){
+        return (getPotions().getSize() > 0);
+    }
+
+    public boolean hasArmors(){
+        return (getArmors().getSize() > 0);
+    }
 }
