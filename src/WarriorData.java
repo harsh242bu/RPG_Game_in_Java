@@ -39,4 +39,8 @@ public class WarriorData extends HeroData{
     public static void removeHero(int index) {
         warriors.remove(index);
     }
+
+    public static int getCharacterIndexByName(String name){
+        return warriors.getCharacterIndexByName(name);
+    }
 }

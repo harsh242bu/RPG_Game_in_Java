@@ -37,4 +37,8 @@ public class PaladinsData extends HeroData{
     public static void removeHero(int index) {
         paladins.remove(index);
     }
+
+    public static int getCharacterIndexByName(String name){
+        return paladins.getCharacterIndexByName(name);
+    }
 }

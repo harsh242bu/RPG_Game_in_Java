@@ -5,7 +5,7 @@ public class InaccessibleTile implements Tile {
 
     @Override
     public String print() {
-        return Utils.getBlackInaccessibleString("    ");
+        return TileStatic.getBlackInaccessibleString("    ");
     }
 
     @Override

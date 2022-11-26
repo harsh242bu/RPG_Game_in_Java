@@ -1,29 +1,34 @@
-public class ValorRPG {
+import java.util.List;
+
+public class ValorRPG implements Game{
 //    private PartyPiece party;
-    private Party Heroes;
-    private Party Monsters;
-    private Board gameBoad;
-    private final Location startLoc = new Location(0,0);
+    private Party heroes;
+    private Party monsters;
+    private Board gameBoard;
+    private Controller gameController;
+//    private final Location startLoc = new Location(0,0);
     private final int TOTAL_PLAYERS = 3;
     private final int monsterRandomMoveChance = 20;
     private TurnState turnState;
     private HeroActionState heroActionState;
     private MonsterActionState monsterActionState;
     private MonsterFactory monsterFactory;
-    private int heroTurnIndex;
-    private int monsterTurnIndex;
+    private int heroTurnIndex = 0;
+    private int monsterTurnIndex = 0;
 
     ValorRPG(){
 //        super(rows, cols);
-        this.gameBoad = new Board();
+        GameSetup.loadData();
+        this.gameBoard = new Board();
+        this.gameController = new Controller();
 
-        this.party = new PartyPiece("X", startLoc);
-        getCell(startLoc).addParty(party);
+        this.heroes = new Party();
+        this.monsters = new Party();
 
         this.turnState = new HeroesTurn();
+        this.heroActionState = new ChooseHeroAction();
         this.monsterFactory = new MonsterFactory();
-        this.heroTurnIndex = 0;
-        this.monsterTurnIndex = 0;
+        this.monsterActionState = new MoveMonsterAction();
     }
 //    ValorRPG(int size){
 //        this(size, size);
@@ -37,16 +42,20 @@ public class ValorRPG {
         this.monsterFactory = monsterFactory;
     }
 
-    public Board getGameBoad() {
-        return gameBoad;
+    public Board getGameBoard() {
+        return gameBoard;
     }
 
-    public void setGameBoad(Board gameBoad) {
-        this.gameBoad = gameBoad;
+    public void setGameBoard(Board gameBoard) {
+        this.gameBoard = gameBoard;
     }
 
-    public Location getStartLoc() {
-        return startLoc;
+    public Controller getGameController() {
+        return gameController;
+    }
+
+    public void setGameController(Controller gameController) {
+        this.gameController = gameController;
     }
 
     public TurnState getTurnState() {
@@ -78,19 +87,19 @@ public class ValorRPG {
     }
 
     public Party getHeroes() {
-        return Heroes;
+        return heroes;
     }
 
     public void setHeroes(Party heroes) {
-        Heroes = heroes;
+        this.heroes = heroes;
     }
 
     public Party getMonsters() {
-        return Monsters;
+        return monsters;
     }
 
     public void setMonsters(Party monsters) {
-        Monsters = monsters;
+        this.monsters = monsters;
     }
 
     public int getHeroTurnIndex() {
@@ -111,10 +120,23 @@ public class ValorRPG {
 
     @Override
     public void setupGame() {
-        GameSetup.loadData();
         GameSetup.viewHeroMenu();
-        this.party.setParty(GameSetup.inputHeroes());
-        GameSetup.displayHeroes(getParty());
+        this.setHeroes(GameSetup.inputHeroes());
+        GameSetup.displayHeroes(getHeroes());
+        this.gameController.respawnAllHero(getHeroes().getLegion());
+        // set the monsters
+
+        try {
+            List<Monster> monsters = this.gameController.respawnMonster(this.getMaxHeroLevel());
+
+            for(Monster monster: monsters){
+                getMonsters().addCharacter(monster);
+            }
+
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
     }
 
     public void startGame() {
@@ -184,7 +206,7 @@ public class ValorRPG {
 
     public int getMaxHeroLevel(){
         int maxLevel = 0;
-        for(Character character: this.party.getParty().getLegion()){
+        for(Character character: this.getHeroes().getLegion()){
             if(character.getIntLevel() > maxLevel){
                 maxLevel = character.getIntLevel();
             }

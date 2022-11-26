@@ -2,6 +2,7 @@
 public abstract class Character implements Modifiable{
     private String name;
     private CharacterLevel level;
+    private String tag;
 //    private int hp;
 
     public Character(String name, int level, int xp) {
@@ -27,6 +28,14 @@ public abstract class Character implements Modifiable{
 
     public void setLevel(CharacterLevel level) {
         this.level = level;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public boolean increaseXp(int xp){

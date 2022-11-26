@@ -31,6 +31,15 @@ public class Party {
         return legion.size();
     }
 
+    public int getCharacterIndexByName(String name){
+        for(Character character: legion){
+            if(character.getName().equals(name)){
+                return legion.indexOf(character);
+            }
+        }
+        return -1;
+    }
+
     public int getMaxLevel(){
         int max = 0;
         for(Character ch: legion){

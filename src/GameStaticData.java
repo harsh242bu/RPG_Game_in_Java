@@ -9,6 +9,8 @@ public class GameStaticData {
     final static String D = "d";
     final static String Q = "q";
     final static String I = "i";
+    final static String BACK = "b";
+    final static String NEXT = "n";
     final static int CHANGE_WEAPON = 1;
     final static int USE_POTION = 2;
     final static int ATTACK = 3;
@@ -16,6 +18,7 @@ public class GameStaticData {
     final static int TELEPORT = 5;
     final static int RECALL = 6;
     final static List<String> movesList = new ArrayList<String>() {{ add(W); add(A); add(S); add(D); add(I); add(Q);}};
+    final static List<String> teleportOtionsList = new ArrayList<String>() {{ add(BACK); add(NEXT);}};
 
     static void displayMoveOptions(){
         System.out.println("Enter your move from the following:");

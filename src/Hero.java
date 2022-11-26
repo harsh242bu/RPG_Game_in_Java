@@ -31,7 +31,7 @@ public class Hero extends Character implements Modifiable{
         this.weapon = new Weapon("Bare_Hands", 0, 1, 180, 2);
         this.backPack = new MarketInventory();
         this.armor = new Armor("None", 0, 1,0);
-        addItemsToTest();
+//        addItemsToTest();
     }
 
     public void addItemsToTest(){
@@ -332,6 +332,30 @@ public class Hero extends Character implements Modifiable{
             }
         } while(action == HeroAttackOptions.SHOW_INFO);
         return null;
+    }
+
+    public Hero getNewHero(){
+        if(WarriorData.getCharacterIndexByName(getName()) != -1){
+            return (Hero)WarriorData.getHero(WarriorData.getCharacterIndexByName(getName()));
+        }
+        else if(PaladinsData.getCharacterIndexByName(getName()) != -1){
+            return (Hero)PaladinsData.getHero(PaladinsData.getCharacterIndexByName(getName()));
+        }
+        else if(SorcerersData.getCharacterIndexByName(getName()) != -1){
+            return (Hero)SorcerersData.getHero(SorcerersData.getCharacterIndexByName(getName()));
+        }
+        else return null;
+    }
+
+    public void resetHero(){
+        Hero temp = this.getNewHero();
+//        int mana, int strength, int agility, int dexterity, int money, int xp
+        this.setLevel(temp.getLevel());
+        this.setMana(temp.getMana());
+        this.setStrength(temp.getStrength());
+        this.setAgility(temp.getAgility());
+        this.setDexterity(temp.getDexterity());
+        this.setGold(temp.getGold());
     }
 
     public void switchWeapon(){

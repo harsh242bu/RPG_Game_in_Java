@@ -38,4 +38,8 @@ public class SorcerersData extends HeroData{
     public static void removeHero(int index) {
         sorcerers.remove(index);
     }
+
+    public static int getCharacterIndexByName(String name){
+        return sorcerers.getCharacterIndexByName(name);
+    }
 }

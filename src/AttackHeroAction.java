@@ -1,10 +1,10 @@
 public class AttackHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {
-        boolean monsterNearby = true; // change it later
-        if(monsterNearby){
-            Hero hero = game.getHero();
-            Monster monster = new Monster(null, 0, 0, 0,0); // (Monster)game.getNearbyMonster();
+        Hero hero = game.getHero();
+        Monster monster = CharacterLocation.getSurroundingMonster(hero); // change it later
+        if(monster != null){
+//            Hero hero = game.getHero();
 
             Battle battle = new Battle(hero, monster);
             // check monster alive else remove from the game

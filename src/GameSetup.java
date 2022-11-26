@@ -35,6 +35,8 @@ public class GameSetup {
         List<Integer> intList = Utility.intInputValidated(1, totalHeroes, maxHeroes);
 
         Party newParty = new Party();
+        int count = 1;
+
         int warriorSize = WarriorData.size();
         int sorcererSize = SorcerersData.size();
 
@@ -42,14 +44,17 @@ public class GameSetup {
             int index = option - 1;
             if(index < warriorSize){
                 Hero h = WarriorData.getHero(index);
+                h.setTag("H"+count++);
                 newParty.addCharacter(h);
             }
             else if(index < warriorSize + sorcererSize){
                 Hero h = SorcerersData.getHero(index - warriorSize);
+                h.setTag("H"+count++);
                 newParty.addCharacter(h);
             }
             else {
                 Hero h = PaladinsData.getHero(index - warriorSize - sorcererSize);
+                h.setTag("H"+count++);
                 newParty.addCharacter(h);
             }
         }
@@ -71,17 +76,27 @@ public class GameSetup {
 
     }
 
-    public static void displayHeroes(PartyPiece partyPiece) {
-        System.out.print("Your party is spawned at location: " );
-        partyPiece.printLoc();
-        Utility.newLine();
-        Utility.newLine();
+    public static void displayHeroes(Party party) {
+
         System.out.println("You have chosen the following heroes:" );
 
         HeroData.getHeader();
-        for(Character hero: partyPiece.getParty().getLegion()){
+        for(Character hero: party.getLegion()){
             hero.printCharacter();
         }
     }
+
+//    public static void displayHeroes(PartyPiece partyPiece) {
+//        System.out.print("Your party is spawned at location: " );
+//        partyPiece.printLoc();
+//        Utility.newLine();
+//        Utility.newLine();
+//        System.out.println("You have chosen the following heroes:" );
+//
+//        HeroData.getHeader();
+//        for(Character hero: partyPiece.getParty().getLegion()){
+//            hero.printCharacter();
+//        }
+//    }
 
 }
