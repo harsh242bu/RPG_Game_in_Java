@@ -1,9 +1,8 @@
 // Represents Hero object
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hero extends Character implements Modifiable {
+public class Hero extends Character implements Modifiable{
     // Inject user playing or computer playing behaviour as a strategy pattern
     // Attacking behaviour as strategy pattern ?
 
@@ -31,11 +30,11 @@ public class Hero extends Character implements Modifiable {
         this.gold = new Gold(money);
         this.weapon = new Weapon("Bare_Hands", 0, 1, 180, 2);
         this.backPack = new MarketInventory();
-        this.armor = new Armor("None", 0, 1, 0);
+        this.armor = new Armor("None", 0, 1,0);
 //        addItemsToTest();
     }
 
-    public void addItemsToTest() {
+    public void addItemsToTest(){
         this.weapon = new Weapon("Bare_Hands", 0, 1, 150, 2);
         this.backPack = new MarketInventory();
         this.backPack.addSpell(FireSpellsData.fireSpells.getItem(1));
@@ -116,16 +115,16 @@ public class Hero extends Character implements Modifiable {
     }
 
     @Override
-    public boolean isAlive() {
+    public boolean isAlive(){
         return (getHp() > 0);
     }
 
-    public void changeMoney(int value) {
+    public void changeMoney(int value){
         int newVal = getMoney() + value;
         this.gold.setAmount(newVal);
     }
 
-    public int getMoney() {
+    public int getMoney(){
         return getGold().getAmount();
     }
 
@@ -137,39 +136,39 @@ public class Hero extends Character implements Modifiable {
         this.backPack = backPack;
     }
 
-    public boolean hasWeapons() {
+    public boolean hasWeapons(){
         return backPack.hasWeapons();
     }
 
-    public boolean hasSpells() {
+    public boolean hasSpells(){
         return backPack.hasSpells();
     }
 
-    public boolean hasPotions() {
+    public boolean hasPotions(){
         return backPack.hasPotions();
     }
 
-    public boolean hasArmors() {
+    public boolean hasArmors(){
         return backPack.hasArmors();
     }
 
-    public int getAttribute(int type) {
-        switch (type) {
-            case (MANA):
+    public int getAttribute(int type){
+        switch (type){
+            case(MANA):
                 return this.mana;
-            case (STRENGTH):
+            case(STRENGTH):
                 return this.strength;
-            case (AGILITY):
+            case(AGILITY):
                 return this.agility;
-            case (DEXTERITY):
+            case(DEXTERITY):
                 return this.dexterity;
-            case (GOLD):
+            case(GOLD):
                 return this.gold.getAmount();
-            case (XP):
+            case(XP):
                 return this.getLevel().getXp();
-            case (LEVEL):
+            case(LEVEL):
                 return this.getIntLevel();
-            case (HP):
+            case(HP):
                 return this.getHp();
             default:
                 return 0;
@@ -269,51 +268,29 @@ public class Hero extends Character implements Modifiable {
         System.out.println(output);
 
 
-//        System.out.print(getName() + "\t");
-//        if(getName().length() < 8){
-//            System.out.print("\t\t");
-//        }
-//        else if(getName().length() < 12){
-//            System.out.print("\t");
-//        }
-//        for(int attr: HERO_ATTRIBUTES){
-//            if(getAttribute(attr) > 999)
-//                System.out.print(Utility.getString(getAttribute(attr)) + "\t");
-//            else System.out.print(Utility.getString(getAttribute(attr)) + "\t\t");
-//
-//            switch (attr){
-//                case STRENGTH:
-//                case DEXTERITY:
-//                case XP:
-//                    System.out.print("\t");
-//                    break;
-//                case GOLD:
-//                    System.out.print("\t\t");
-//                    break;
-//            }
-//        }
-//
-//        Utility.newLine();
+
+
+
     }
 
     @Override
     public void modify(int type, int value) {
-        switch (type) {
-            case (HP):
+        switch (type){
+            case(HP):
                 this.hp += value;
-            case (MANA):
+            case(MANA):
                 this.mana += value;
                 break;
-            case (STRENGTH):
+            case(STRENGTH):
                 this.strength += value;
                 break;
-            case (AGILITY):
+            case(AGILITY):
                 this.agility += value;
                 break;
-            case (DEXTERITY):
+            case(DEXTERITY):
                 this.dexterity += value;
                 break;
-            case (GOLD):
+            case(GOLD):
                 this.gold.modify(value);
                 break;
         }
@@ -354,21 +331,24 @@ public class Hero extends Character implements Modifiable {
 //                    return null;
                 }
             }
-        } while (action == HeroAttackOptions.SHOW_INFO);
+        } while(action == HeroAttackOptions.SHOW_INFO);
         return null;
     }
 
-    public Hero getNewHero() {
-        if (WarriorData.getCharacterIndexByName(getName()) != -1) {
-            return (Hero) WarriorData.getHero(WarriorData.getCharacterIndexByName(getName()));
-        } else if (PaladinsData.getCharacterIndexByName(getName()) != -1) {
-            return (Hero) PaladinsData.getHero(PaladinsData.getCharacterIndexByName(getName()));
-        } else if (SorcerersData.getCharacterIndexByName(getName()) != -1) {
-            return (Hero) SorcerersData.getHero(SorcerersData.getCharacterIndexByName(getName()));
-        } else return null;
+    public Hero getNewHero(){
+        if(WarriorData.getCharacterIndexByName(getName()) != -1){
+            return (Hero)WarriorData.getHero(WarriorData.getCharacterIndexByName(getName()));
+        }
+        else if(PaladinsData.getCharacterIndexByName(getName()) != -1){
+            return (Hero)PaladinsData.getHero(PaladinsData.getCharacterIndexByName(getName()));
+        }
+        else if(SorcerersData.getCharacterIndexByName(getName()) != -1){
+            return (Hero)SorcerersData.getHero(SorcerersData.getCharacterIndexByName(getName()));
+        }
+        else return null;
     }
 
-    public void resetHero() {
+    public void resetHero(){
         Hero temp = this.getNewHero();
 //        int mana, int strength, int agility, int dexterity, int money, int xp
         this.setLevel(temp.getLevel());
@@ -377,10 +357,10 @@ public class Hero extends Character implements Modifiable {
         this.setAgility(temp.getAgility());
         this.setDexterity(temp.getDexterity());
         this.setGold(temp.getGold());
-        this.setHp(1 * INITIAL_HP);
+        this.setHp(1*INITIAL_HP);
     }
 
-    public void switchWeapon() {
+    public void switchWeapon(){
         int counter = 0;
         System.out.println("Choose from the following weapons: ");
 
@@ -394,7 +374,7 @@ public class Hero extends Character implements Modifiable {
         setWeapon(newWeapon);
     }
 
-    public void switchArmor() {
+    public void switchArmor(){
         int counter = 0;
         System.out.println("Choose from the following armors: ");
 
@@ -413,7 +393,7 @@ public class Hero extends Character implements Modifiable {
         System.out.println(getName() + " used " + potion.getName() +
                 " for " + potion.getAttrIncrease() + potion.printAttributesAffected() + " increase !");
         backPack.getPotions().remove(potion);
-        for (int attr : potion.getAttrAffected()) {
+        for(int attr: potion.getAttrAffected()){
             modify(attr, potion.getAttrIncrease());
         }
     }
@@ -421,10 +401,11 @@ public class Hero extends Character implements Modifiable {
     public Attack getSpellAttack() {
         Spell spell = chooseSpell();
         Attack attack;
-        if (spell.getManaCost() > getMana()) {
+        if(spell.getManaCost() > getMana()){
             System.out.println("Cannot use this spell. Not enough mana available !!");
             attack = null;
-        } else {
+        }
+        else {
             int spellDamage = spell.getDamage();
             spellDamage = spellDamage + ((getDexterity() / 1000) * spellDamage);
             System.out.println(getName() + " used " + spell.getName() +
@@ -436,22 +417,22 @@ public class Hero extends Character implements Modifiable {
         return attack;
     }
 
-    public Spell chooseSpell() {
+    public Spell chooseSpell(){
         System.out.println("Choose from the following spells");
         backPack.getSpells().getItem(0).getHeader();
-        for (int i = 0; i < backPack.numOfSpells(); i++) {
-            System.out.print("" + (i + 1) + ". ");
+        for(int i = 0; i < backPack.numOfSpells(); i++){
+            System.out.print("" + (i+1) + ". ");
             backPack.getSpells().getItem(i).printItem();
         }
         int choice = Utility.intInput(1, backPack.getSpells().getSize() + 1);
         return backPack.getSpells().getItem(choice - 1);
     }
 
-    public Potion choosePotion() {
+    public Potion choosePotion(){
         System.out.println("Choose from the following potions");
         backPack.getPotions().getItem(0).getHeader();
-        for (int i = 0; i < backPack.numOfSpells(); i++) {
-            System.out.print("" + (i + 1) + ". ");
+        for(int i = 0; i < backPack.numOfSpells(); i++){
+            System.out.print("" + (i+1) + ". ");
             backPack.getPotions().getItem(i).printItem();
         }
         int choice = Utility.intInput(1, backPack.getPotions().getSize() + 1);
@@ -461,13 +442,13 @@ public class Hero extends Character implements Modifiable {
     public void activeLevelUp(int level) {
         // increase xp = level of monster
         // increase gold = 100*level of Mon
-        gold.setAmount(gold.getAmount() + 100 * level);
-        if (increaseXp(level)) {
-            setMana((int) Math.round(getMana() * 1.1));
-            setStrength((int) Math.round(getStrength() * 1.05));
-            setAgility((int) Math.round(getAgility() * 1.05));
-            setDexterity((int) Math.round(getDexterity() * 1.05));
-            setHp(getIntLevel() * 100);
+        gold.setAmount(gold.getAmount() + 100*level);
+        if(increaseXp(level)){
+            setMana((int)Math.round(getMana()*1.1));
+            setStrength((int)Math.round(getStrength()*1.05));
+            setAgility((int)Math.round(getAgility()*1.05));
+            setDexterity((int)Math.round(getDexterity()*1.05));
+            setHp(getIntLevel()*100);
             levelBehaviour.levelUp(this);
         }
 
@@ -483,7 +464,7 @@ public class Hero extends Character implements Modifiable {
         // increase half hp
         // increase half mana
         setHp(getIntLevel() * 50);
-        int newMana = (int) Math.round(getMana() * 1.5);
+        int newMana = (int)Math.round(getMana() * 1.5);
         setMana(newMana);
     }
 
@@ -498,7 +479,7 @@ public class Hero extends Character implements Modifiable {
         getWeapon().getHeader();
         getWeapon().printItem();
 
-        if (getArmor() != null) {
+        if(getArmor() != null) {
             Utility.newLine();
             System.out.println("Armor equipped:");
             getArmor().getHeader();
@@ -512,10 +493,11 @@ public class Hero extends Character implements Modifiable {
     public void dealAttack(Attack attack) {
         // calculate dodge chance here
         // implement armor here --
-        int num = Utility.getIntForDouble(getAgility() * 0.02);
-        if (!Utility.checkProbability(num)) {
+        int num = Utility.getIntForDouble(getAgility()*0.02);
+        if(!Utility.checkProbability(num)){
             super.dealAttack(attack);
-        } else {
+        }
+        else{
             System.out.println(getName() + " dodged the attack");
         }
     }

@@ -10,7 +10,7 @@ public class Monster extends Character implements Modifiable{
 
     Monster(String name, int level, int damage, int defense, int dodge){
         // defense is hp
-        super(name, level, 0);
+        super("M",name, level, 0);
         this.defense = defense;
         this.baseDamage = damage;
         this.dodge = dodge;
@@ -52,22 +52,20 @@ public class Monster extends Character implements Modifiable{
     @Override
     public void printCharacter() {
 //        Name level damage defense dodge chance
+        System.out.print(getTag() + "\t");
         System.out.print(getName() + "\t");
+        if(getName().length() < 8){
+            System.out.print("\t\t");
+        }
+        else if(getName().length() < 12){
+            System.out.print("\t");
+        }
         for(int attr: MONSTER_ATTRIBUTES){
-            switch (attr){
-                case(LEVEL):
-                    System.out.print(Utility.getString(getIntLevel()) + "\t");
-                    break;
-                case(DAMAGE):
-                    System.out.print(Utility.getString(this.baseDamage) + "\t");
-                    break;
-                case(DEFENSE):
-                    System.out.print(Utility.getString(this.defense) + "\t");
-                    break;
-                case(AGILITY):
-                    System.out.print(Utility.getString(this.dodge) + "\t");
-                    break;
-            }
+            System.out.print(Utility.getString(getAttribute(attr)));
+            if(getAttribute(attr) > 999)
+                System.out.print("\t");
+            else System.out.print("\t\t");
+
         }
 
         Utility.newLine();

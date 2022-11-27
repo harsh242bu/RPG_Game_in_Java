@@ -5,4 +5,11 @@ public class HeroAttack implements BattleState{
         Attack attack = battle.getHero().getAttack();
         battle.getMonster().dealAttack(attack);
     }
+
+    @Override
+    public void printOpponent(Battle battle) {
+        MonsterData.getMonsterHeader();
+        battle.getMonster().printCharacter();
+        Utility.newLine();
+    }
 }

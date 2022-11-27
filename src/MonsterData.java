@@ -21,13 +21,21 @@ public class MonsterData {
         return monsterDataInstance;
     }
 
+    public static Party getMonsters() {
+        return monsters;
+    }
+
+    public static void setMonsters(Party monsters) {
+        MonsterData.monsters = monsters;
+    }
+
     public void removeMonster(Character monster){
         monsters.remove(monster);
     }
 
 //    Name/level/damage/defense/dodge chance
     public static void getMonsterHeader(){
-        System.out.println("Name \t\t\tLevel\tDamage\tDefense\tDodge chance");
+        System.out.println("Tag\tName\t\t\tLevel\tDamage\tDefense\tDodge chance");
     };
 
 //    public static Monster getMonster(int index) {
@@ -47,4 +55,13 @@ public class MonsterData {
 //        }
 //        return counter;
 //    }
+
+    public static void main(String[] args) {
+        MonsterData data = getMonsterDataInstance();
+        getMonsterHeader();
+        for(Character character: data.getMonsters().getLegion()){
+            Monster m = (Monster) character;
+            m.printCharacter();
+        }
+    }
 }

@@ -6,7 +6,7 @@ public class Battle {
     Battle(Hero hero, Monster monster){
         this.hero = hero;
         this.monster = monster;
-        declareBattle();
+//        declareBattle();
     }
 
     public Monster getMonster() {
@@ -35,6 +35,9 @@ public class Battle {
 
     public void setAttack(BattleState state){
         this.setBattleState(state);
+//        declareBattle();
+        System.out.println("You are fighting against the following:");
+        this.battleState.printOpponent(this);
         this.battleState.handleAttack(this);
     }
 
@@ -42,6 +45,7 @@ public class Battle {
         System.out.println("You are fighting against the following monsters:");
         MonsterData.getMonsterHeader();
         monster.printCharacter();
+        Utility.newLine();
     }
 
     public void startBattle(BattleState attackState) {
