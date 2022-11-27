@@ -1,5 +1,5 @@
 // Represents a game character
-public abstract class Character implements Modifiable{
+public abstract class Character implements Modifiable, Cloneable{
     private String name;
     private CharacterLevel level;
     private String tag;
@@ -38,6 +38,7 @@ public abstract class Character implements Modifiable{
         this.tag = tag;
     }
 
+    @Override
     public Character clone() throws CloneNotSupportedException {
         return (Character) super.clone();
     }
