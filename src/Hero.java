@@ -21,7 +21,7 @@ public class Hero extends Character implements Modifiable{
 
     // mana/strength/agility/dexterity/starting money/starting experience
     public Hero(String name, int mana, int strength, int agility, int dexterity, int money, int xp) {
-        super(name, 1, xp);
+        super("H",name, 1, xp);
         this.hp = 1*INITIAL_HP;
         this.mana = mana;
         this.strength = strength;
@@ -264,6 +264,7 @@ public class Hero extends Character implements Modifiable{
     @Override
     public void printCharacter() {
 //        Name 	Mana	Strength	Agility	Dexterity	Starting money	Starting experience
+        System.out.print(getTag() + "\t");
         System.out.print(getName() + "\t");
         if(getName().length() < 8){
             System.out.print("\t\t");
@@ -272,9 +273,10 @@ public class Hero extends Character implements Modifiable{
             System.out.print("\t");
         }
         for(int attr: HERO_ATTRIBUTES){
+            System.out.print(Utility.getString(getAttribute(attr)));
             if(getAttribute(attr) > 999)
-                System.out.print(Utility.getString(getAttribute(attr)) + "\t");
-            else System.out.print(Utility.getString(getAttribute(attr)) + "\t\t");
+                System.out.print("\t");
+            else System.out.print("\t\t");
 
             switch (attr){
                 case STRENGTH:

@@ -5,7 +5,8 @@ public abstract class Character implements Modifiable, Cloneable{
     private String tag;
 //    private int hp;
 
-    public Character(String name, int level, int xp) {
+    public Character(String tag, String name, int level, int xp) {
+        this.tag = tag;
         this.name = name;
         this.level = new CharacterLevel(level, xp);
 //        this.hp = hp;

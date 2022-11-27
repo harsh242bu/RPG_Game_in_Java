@@ -2,8 +2,8 @@ public class AttackMonsterAction implements MonsterActionState{
     @Override
     public void handleAction(ValorRPG game) {
 
-        Hero hero = game.getHero();
         Monster monster = game.getMonster();
+        Hero hero = CharacterLocation.getSurroundingHero(monster);
 
         Battle battle = new Battle(hero, monster);
         // check monster alive else remove from the game
