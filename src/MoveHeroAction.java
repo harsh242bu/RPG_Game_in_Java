@@ -22,7 +22,9 @@ public class MoveHeroAction implements HeroActionState {
 
         // Change heroes location here
         Controller controller = new Controller();
-        controller.move(hero, move, game.getGameBoard());
+        if(!controller.move(hero, move, game.getGameBoard())){
+            game.setHeroNextAction(new MoveHeroAction());
+        };
         // check for reach nexus condition
         if(CharacterLocation.anyCharacterReachedNexus(hero)){
             game.setNextTurn(new QuitGame());

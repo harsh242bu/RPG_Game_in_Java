@@ -13,7 +13,7 @@ public class WarriorData extends HeroData implements Cloneable{
     }
     public static int viewWarriors(int counter){
         System.out.println("Warriors - Favored on Strength and Agility");
-        getHeader();
+        getHeaderWithSrNo();
 
 //        Formatter fmt = new Formatter();
 //        for (int n : num){
@@ -21,9 +21,13 @@ public class WarriorData extends HeroData implements Cloneable{
 //        }
 
         for(Character warrior: warriors.getLegion()){
-            System.out.print("" + counter++ + ". ");
+            System.out.print("" + counter++ + ".\t");
+//            if(counter < 10){
+//                System.out.print(" ");
+//            }
             warrior.printCharacter();
 //            Utility.newLine();
+//            counter++;
         }
         return counter;
     }

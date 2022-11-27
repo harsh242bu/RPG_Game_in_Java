@@ -15,7 +15,7 @@ public class ValidateMove {
         return true;
     }
     public static boolean checkInaccessible(Position position){
-        System.out.println(position);
+//        System.out.println(position);
         int y = position.getY();
         if( y==2 || y==5){
             System.out.println("Cannot go through the wall");

@@ -32,7 +32,7 @@ public class GameSetup {
                 ") separated by space. For ex: 1 5 7");
 
         int totalHeroes = WarriorData.size() + SorcerersData.size() + PaladinsData.size();
-        List<Integer> intList = Utility.intInputValidated(1, totalHeroes, maxHeroes);
+        List<Integer> intList = Utility.intListInput(1, totalHeroes, maxHeroes);
 
         Party newParty = new Party();
         int count = 1;
@@ -59,31 +59,18 @@ public class GameSetup {
             }
         }
         return newParty;
-//        for(int option: intList){
-//            int index = option - 1;
-//
-//            if(index < warriorSize){
-//                WarriorData.removeHero(index);
-//            }
-//            else if(index < warriorSize + sorcererSize){
-//                SorcerersData.removeHero(index - warriorSize);
-//            }
-//            else {
-//                PaladinsData.removeHero(index - warriorSize - sorcererSize);
-//            }
-//        }
-//        board.addParty(newParty);
 
     }
 
     public static void displayHeroes(Party party) {
-
+        Utility.newLine();
         System.out.println("You have chosen the following heroes:" );
 
         HeroData.getHeader();
         for(Character hero: party.getLegion()){
             hero.printCharacter();
         }
+        Utility.newLine();
     }
 
 //    public static void displayHeroes(PartyPiece partyPiece) {

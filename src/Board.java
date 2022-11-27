@@ -105,10 +105,11 @@ public class Board {
      * @return String of board
      */
     public String printBoardWithCharacter() {
+        System.out.println("Game Board ");
         Set<Position> heroPositions = CharacterLocation.getheroLocation();
-        System.out.println(heroPositions);
+//        System.out.println(heroPositions);
         Set<Position> monsterPositions = CharacterLocation.getmonsterLocation();
-        System.out.println("Monster position: "+monsterPositions);
+//        System.out.println("Monster position: "+monsterPositions);
         Set<Position> monsterPosition = CharacterLocation.getmonsterLocation();
         String result = "";
         for (int i = 0; i < board.length; i++) {

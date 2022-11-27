@@ -17,20 +17,22 @@ public class GameStaticData {
     final static int MOVE = 4;
     final static int TELEPORT = 5;
     final static int RECALL = 6;
+    final static int QUIT = 7;
     final static List<String> movesList = new ArrayList<String>() {{ add(W); add(A); add(S); add(D); add(I); add(Q);}};
     final static List<String> teleportOtionsList = new ArrayList<String>() {{ add(BACK); add(NEXT);}};
 
     static void displayMoveOptions(){
         System.out.println("Enter your move from the following:");
-        System.out.println(W + " - To go up");
-        System.out.println(A + " - To go left");
-        System.out.println(S + " - To go down");
-        System.out.println(D + " - To go right");
-        System.out.println(I + " - To show info");
-        System.out.println(Q + " - To quit the game");
+        System.out.println(W.toUpperCase() + " - To go up");
+        System.out.println(A.toUpperCase() + " - To go left");
+        System.out.println(S.toUpperCase() + " - To go down");
+        System.out.println(D.toUpperCase() + " - To go right");
+        System.out.println(I.toUpperCase() + " - To show info");
+        System.out.println(Q.toUpperCase() + " - To quit the game");
     }
 
     static void displayActions(){
+        Utility.newLine();
         Utility.printStrLn("Choose from one of the following actions:");
         Utility.printStrLn("1. Choose a weapon or armor");
         Utility.printStrLn("2. Use a potion");
@@ -38,6 +40,8 @@ public class GameStaticData {
         Utility.printStrLn("4. Move in the map");
         Utility.printStrLn("5. Teleport to another lane");
         Utility.printStrLn("6. Recall");
+        Utility.printStrLn("7. Quit game");
+        Utility.newLine();
         Utility.enterNumberPrompt();
     }
 }

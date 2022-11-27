@@ -1,11 +1,10 @@
 public class ChooseHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {
-        Utility.printStrLn(game.getHero().getTag() + " your turn now:");
-        GameStaticData.displayActions();
-//        Utility.printStr("Enter a number: ");
 
-        int input = Utility.intInput(1, 7);
+        GameStaticData.displayActions();
+
+        int input = Utility.intInput(1, 8);
 
         switch (input){
             case GameStaticData.CHANGE_WEAPON:
@@ -25,6 +24,10 @@ public class ChooseHeroAction implements HeroActionState {
                 break;
             case GameStaticData.RECALL:
                 game.setHeroNextAction(new RecallHeroAction());
+                break;
+            case GameStaticData.QUIT:
+                game.setNextTurn(new QuitGame());
+                break;
         }
     }
 }

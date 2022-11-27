@@ -8,6 +8,7 @@ public class HeroesTurn implements TurnState{
         int heroIndex = game.getHeroTurnIndex();
         if(game.isHeroAlive()){
             Hero hero = game.getHero();
+            Utility.printStrLn(hero.getTag() + " your turn now:");
             if(CharacterLocation.inBase(game.getHero())){
 //            if(true){
                 Position location = CharacterLocation.getLocation(hero);

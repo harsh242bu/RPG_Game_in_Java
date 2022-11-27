@@ -8,7 +8,7 @@ public class SorcerersData extends HeroData implements Cloneable{
         // Wild_Vine XLR8 Crystal_Fist Boot_Leg Wrecking_Bolt
         sorcerers.addCharacter(new Hero("Grey_Matter", 1300, 750, 450, 500, 2500, 9));
         sorcerers.addCharacter(new Hero("Over_Flow", 900, 800, 500, 650, 2500, 5));
-        sorcerers.addCharacter(new Hero("Rath", 800, 800, 800, 800, 2500, 8));
+        sorcerers.addCharacter(new Hero("Rathy", 800, 800, 800, 800, 2500, 8));
         sorcerers.addCharacter(new Hero("Stink_Fly", 900, 800, 700, 400, 2500, 7));
         sorcerers.addCharacter(new Hero("Upgrade", 800, 850, 400, 600, 2500, 6));
 
@@ -16,11 +16,15 @@ public class SorcerersData extends HeroData implements Cloneable{
 
     public static int viewSorcerers(int counter) {
         System.out.println("Sorcerers - Favored on Agility and Dexterity");
-        getHeader();
+        getHeaderWithSrNo();
 
         for(Character sorcerer: sorcerers.getLegion()){
-            System.out.print("" + counter++ + ". ");
+            System.out.print("" + counter++ + ".\t");
+//            if(counter < 10){
+//                System.out.print(" ");
+//            }
             sorcerer.printCharacter();
+//            counter++;
 //            Utility.newLine();
         }
         return counter;

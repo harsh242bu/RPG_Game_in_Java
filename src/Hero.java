@@ -265,8 +265,27 @@ public class Hero extends Character implements Modifiable{
     public void printCharacter() {
 //        Name 	Mana	Strength	Agility	Dexterity	Starting money	Starting experience
         System.out.print(getName() + "\t");
+        if(getName().length() < 8){
+            System.out.print("\t\t");
+        }
+        else if(getName().length() < 12){
+            System.out.print("\t");
+        }
         for(int attr: HERO_ATTRIBUTES){
-            System.out.print(Utility.getString(getAttribute(attr)) + "\t");
+            if(getAttribute(attr) > 999)
+                System.out.print(Utility.getString(getAttribute(attr)) + "\t");
+            else System.out.print(Utility.getString(getAttribute(attr)) + "\t\t");
+
+            switch (attr){
+                case STRENGTH:
+                case DEXTERITY:
+                case XP:
+                    System.out.print("\t");
+                    break;
+                case GOLD:
+                    System.out.print("\t\t");
+                    break;
+            }
         }
 
         Utility.newLine();

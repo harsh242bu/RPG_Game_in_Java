@@ -15,11 +15,15 @@ public class PaladinsData extends HeroData implements Cloneable{
 
     public static int viewPaladins(int counter) {
         System.out.println("Paladins - Favored on Dexterity and Strength");
-        getHeader();
+        getHeaderWithSrNo();
 
         for(Character warrior: paladins.getLegion()){
-            System.out.print("" + counter++ + ". ");
+            System.out.print("" + counter++ + ".\t");
+//            if(counter < 10){
+//                System.out.print(" ");
+//            }
             warrior.printCharacter();
+//            counter++;
 //            Utility.newLine();
         }
         return counter;

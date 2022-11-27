@@ -2,7 +2,7 @@ public class BushTile extends CommonTile {
     private double increasedValue=0;
     @Override
     public void activate(Hero hero) {
-        System.out.println("activate bush called");
+//        System.out.println("activate bush called");
 
         hero.setDexterity((int) (hero.getDexterity()+(increasedValue=hero.getDexterity()*0.1)));
     }
@@ -10,7 +10,7 @@ public class BushTile extends CommonTile {
 
     @Override
     public void deactivate(Hero hero) {
-        System.out.println("deactivate bush called");
+//        System.out.println("deactivate bush called");
 
         hero.setDexterity((int) (hero.getDexterity()-increasedValue));
     }

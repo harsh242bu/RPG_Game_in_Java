@@ -91,6 +91,17 @@ public class Utility {
             return false;
         }
     }
+
+    public static boolean checkListSize(List<Integer> intList, int size) {
+        if(intList.size() == size){
+            return true;
+        }
+        else {
+            System.out.println("List must be of size " + size + ". Enter again:");
+            return false;
+        }
+    }
+
     public static List<Integer> listInput(){
         Scanner scn = new Scanner(System.in);
         String str = scn.nextLine();
@@ -107,6 +118,14 @@ public class Utility {
     public static List<Integer> intInputValidated(int start, int end, int size){
         List<Integer> intList = listInput();
         while(!isListUnique(intList) || !listInBound(intList, start, end) || !isSizeProper(intList, size)){
+            intList = listInput();
+        }
+        return intList;
+    }
+
+    public static List<Integer> intListInput(int start, int end, int size){
+        List<Integer> intList = listInput();
+        while(!listInBound(intList, start, end) || !checkListSize(intList, size)){
             intList = listInput();
         }
         return intList;
