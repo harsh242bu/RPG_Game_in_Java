@@ -5,7 +5,7 @@ public class Spell extends Item {
     private int manaCost;
     private int attrAffected;
 
-    Spell(String name, int cost, int reqLevel, int damage, int manaCost, int attrAffected){
+    Spell(String name, int cost, int reqLevel, int damage, int manaCost, int attrAffected) {
         super(name, cost, reqLevel);
         this.damage = damage;
         this.manaCost = manaCost;
@@ -36,14 +36,19 @@ public class Spell extends Item {
         this.attrAffected = attrAffected;
     }
 
-    public void getHeader(){
+    public void getHeader() {
 //        Name/cost/required level/damage/mana cost
-        System.out.println("Name\tCost\tLevel\tDamage\tMana cost\tCategory");
+//        System.out.println("Name\tCost\tLevel\tDamage\tMana cost\tCategory");
+        String output = String.format("%-4s %-35s %-10s %-18s %-10s %-15s %-10s", "No.", "Name", "Cost", "Required Level", "Damage", "Mana Cost", "Category");
+        System.out.println(output);
     }
 
     @Override
-    public void printItem(){
-        System.out.print(getName() +"\t" + getCost() + "\t" + getReqLevel() + "\t" + getDamage() +
-                "\t" + getManaCost() + "\t" );
+    public void printItem() {
+//        System.out.print(getName() +"\t" + getCost() + "\t" + getReqLevel() + "\t" + getDamage() +
+//                "\t" + getManaCost() + "\t" );
+        String output = String.format(" %-35s %-10s %-18s %-10s %-15s ", getName(), getCost(), getReqLevel(), getDamage(), getManaCost());
+
+        System.out.print(output);
     }
 }

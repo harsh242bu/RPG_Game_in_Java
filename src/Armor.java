@@ -1,5 +1,5 @@
 // Armor class - Contains attribute specific to Armor
-public class Armor extends Item{
+public class Armor extends Item {
     int damageReduction;
 
     public Armor(String name, int cost, int reqLevel, int damageReduction) {
@@ -15,12 +15,18 @@ public class Armor extends Item{
         this.damageReduction = damageReduction;
     }
 
-    public void getHeader(){
-        System.out.println("Name\t\tCost\tRequired level\tDamage");
+    public void getHeader() {
+        String output = String.format("%-4s %-17s %-10s %-18s %-10s", "No.", "Name", "Cost", "Required Level", "Damage");
+//        System.out.println("Name\t\tCost\tRequired level\tDamage");
+        System.out.println(output);
     }
+
 
     @Override
     public void printItem() {
-        System.out.println(getName() + "\t\t" + getCost() + "\t" + getReqLevel() + "\t" + getDamageReduction() );
+        String output = String.format("  %-17s %-10s %-18s %-10s", getName(), getCost(), getReqLevel(), getDamageReduction());
+
+        System.out.println(output);
+//        System.out.println(getName() + "\t\t" + getCost() + "\t" + getReqLevel() + "\t" + getDamageReduction());
     }
 }

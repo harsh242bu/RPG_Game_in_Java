@@ -1,5 +1,5 @@
 // Represents a game character
-public abstract class Character implements Modifiable, Cloneable{
+public abstract class Character implements Modifiable, Cloneable {
     private String name;
     private CharacterLevel level;
     private String tag;
@@ -22,8 +22,13 @@ public abstract class Character implements Modifiable, Cloneable{
     public CharacterLevel getLevel() {
         return level;
     }
+
     public int getIntLevel() {
         return level.getLevel();
+    }
+
+    public String getStringLevel() {
+        return level.getLevel() + "(" + level.getXp() + "/" + (level.getLevel()) * 10 + ")";
     }
 
     public void setLevel(CharacterLevel level) {
@@ -43,7 +48,7 @@ public abstract class Character implements Modifiable, Cloneable{
         return (Character) super.clone();
     }
 
-    public boolean increaseXp(int xp){
+    public boolean increaseXp(int xp) {
         return level.increaseXp(xp);
     }
 

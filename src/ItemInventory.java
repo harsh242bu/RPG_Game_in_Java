@@ -1,11 +1,12 @@
 // Abstraction of list of items
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemInventory<T extends Item> {
     private List<T> items;
 
-    ItemInventory(){
+    ItemInventory() {
         this.items = new ArrayList<T>();
     }
 
@@ -17,27 +18,30 @@ public class ItemInventory<T extends Item> {
         this.items = items;
     }
 
-    public void addItem(T item){
+    public void addItem(T item) {
         items.add(item);
     }
-    public T getItem(int index){
+
+    public T getItem(int index) {
         return items.get(index);
     }
 
-    public void addItems(List<T> items){
+    public void addItems(List<T> items) {
         this.items.addAll(items);
     }
 
-    public int getSize(){
+    public int getSize() {
         return items.size();
     }
 
-    public void remove(T item){ items.remove(item); }
+    public void remove(T item) {
+        items.remove(item);
+    }
 
-    public void printItems(int counter){
+    public void printItems(int counter) {
         items.get(0).getHeader();
-        for(Item item: items){
-            System.out.print(counter + ". ");
+        for (Item item : items) {
+            System.out.printf("%-4s", (counter + ". "));
             item.printItem();
             counter++;
         }
