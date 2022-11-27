@@ -1,5 +1,5 @@
 // Paladins data
-public class PaladinsData extends HeroData{
+public class PaladinsData extends HeroData implements Cloneable{
     static public Party paladins;
 
     PaladinsData(){
@@ -29,9 +29,18 @@ public class PaladinsData extends HeroData{
     }
 
     public static Hero getHero(int index) {
-        Hero hero = (Hero)paladins.get(index);
-        hero.setLevelBehaviour(new PaladinBehaviour());
+        Hero hero = null;
+        try {
+            hero = (Hero) paladins.get(index).clone();
+            hero.setLevelBehaviour(new PaladinBehaviour());
+
+        }
+        catch (Exception e) {System.out.println(e);}
         return hero;
+
+//        Hero hero = (Hero)paladins.get(index);
+//        hero.setLevelBehaviour(new PaladinBehaviour());
+//        return hero;
     }
 
     public static void removeHero(int index) {

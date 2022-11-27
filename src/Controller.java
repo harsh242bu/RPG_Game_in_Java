@@ -166,10 +166,10 @@ public class Controller {
         Position p = null;
         for(Position i: characterInDiffernetlane){
             if(getLane(i)==lane-1){
-                if(direction.equalsIgnoreCase("s")){
+                if(direction.equalsIgnoreCase(GameStaticData.NEXT)){
                     p = getValidSide(i);
                 }
-                else if(direction.equalsIgnoreCase("b")){
+                else if(direction.equalsIgnoreCase(GameStaticData.BACK)){
                     p = new Position(i.getX() + 1, i.getY());
                 }
                 else {

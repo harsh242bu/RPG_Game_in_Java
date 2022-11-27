@@ -1,5 +1,5 @@
 // Warriors data
-public class WarriorData extends HeroData{
+public class WarriorData extends HeroData implements Cloneable{
     static public Party warriors;
 
     WarriorData(){
@@ -32,8 +32,13 @@ public class WarriorData extends HeroData{
     }
 
     public static Hero getHero(int index) {
-        Hero hero = (Hero)warriors.get(index);
-        hero.setLevelBehaviour(new WarriorBehaviour());
+        Hero hero = null;
+        try {
+            hero = (Hero) warriors.get(index).clone();
+            hero.setLevelBehaviour(new WarriorBehaviour());
+
+        }
+        catch (Exception e) {System.out.println(e);}
         return hero;
     }
     public static void removeHero(int index) {

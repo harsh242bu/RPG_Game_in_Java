@@ -1,10 +1,11 @@
 // Market class. Contains items we can buy from the market, heroes, etc
 public class Market {
+    private static Market marketInstance;
     private MarketInventory marketItems;
     private InMarketState marketState;
 //    private Party heroParty;
 
-    Market(){
+    private Market(){
         marketItems = new MarketInventory();
 //        this.heroParty = party;
 
@@ -14,6 +15,13 @@ public class Market {
         marketItems.setSpells(FireSpellsData.fireSpells);
         marketItems.addSpells(IceSpellsData.iceSpells);
         marketItems.addSpells(LightningSpellsData.lightningSpells);
+    }
+
+    public static Market getMarketInstance(){
+        if(marketInstance == null){
+            marketInstance = new Market();
+        }
+        return marketInstance;
     }
 
     public MarketInventory getMarketItems() {

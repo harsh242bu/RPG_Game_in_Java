@@ -25,6 +25,7 @@ public class HeroesTurn implements TurnState{
             game.setHeroNextAction(new ChooseHeroAction());
         }
         else{
+            Utility.printStrLn(game.getHero().getTag() + " is dead!");
             Utility.printStrLn("Resetting the hero...");
             game.getHero().resetHero();
             Controller controller = new Controller();

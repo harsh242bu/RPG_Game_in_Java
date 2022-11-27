@@ -8,7 +8,7 @@ public class ValorRPG implements Game{
     private Controller gameController;
 //    private final Location startLoc = new Location(0,0);
     private final int TOTAL_PLAYERS = 3;
-    private final int monsterRandomMoveChance = 20;
+    private final int monsterRandomMoveChance = 15;
     private TurnState turnState;
     private HeroActionState heroActionState;
     private MonsterActionState monsterActionState;

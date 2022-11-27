@@ -356,6 +356,7 @@ public class Hero extends Character implements Modifiable{
         this.setAgility(temp.getAgility());
         this.setDexterity(temp.getDexterity());
         this.setGold(temp.getGold());
+        this.setHp(1*INITIAL_HP);
     }
 
     public void switchWeapon(){

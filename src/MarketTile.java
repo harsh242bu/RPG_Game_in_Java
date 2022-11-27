@@ -9,7 +9,7 @@ public class MarketTile extends CommonTile {
     }
 
     public MarketTile() {
-        market = new Market();
+        market = Market.getMarketInstance();
     }
 
     @Override

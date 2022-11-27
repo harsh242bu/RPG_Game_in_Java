@@ -1,5 +1,5 @@
 // Sorcerer data
-public class SorcerersData extends HeroData{
+public class SorcerersData extends HeroData implements Cloneable{
     static public Party sorcerers;
 
     SorcerersData(){
@@ -30,9 +30,18 @@ public class SorcerersData extends HeroData{
     }
 
     public static Hero getHero(int index) {
-        Hero hero = (Hero)sorcerers.get(index);
-        hero.setLevelBehaviour(new SorcererBehaviour());
+        Hero hero = null;
+        try {
+            hero = (Hero) sorcerers.get(index).clone();
+            hero.setLevelBehaviour(new SorcererBehaviour());
+
+        }
+        catch (Exception e) {System.out.println(e);}
         return hero;
+
+//        Hero hero = (Hero)sorcerers.get(index);
+//        hero.setLevelBehaviour(new SorcererBehaviour());
+//        return hero;
     }
 
     public static void removeHero(int index) {
