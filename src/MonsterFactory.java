@@ -3,9 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MonsterFactory {
-    private int monsterCount = 1;
+    private int monsterCount;
     MonsterFactory(){
+        this.monsterCount = 1;
         MonsterData.getMonsterDataInstance();
+    }
+
+    public int getMonsterCount() {
+        return monsterCount;
+    }
+
+    public void setMonsterCount(int monsterCount) {
+        this.monsterCount = monsterCount;
     }
 
     public Monster getMonster(int maxHeroLevel){
@@ -20,9 +29,17 @@ public class MonsterFactory {
             return null;
         }
         int rand_num = Utility.getRandomNum(newList.size());
-        Monster monster = (Monster) newList.get(rand_num);
+        Monster monster = null;
+        try {
+            monster = ((Monster)newList.get(rand_num)).clone();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+
 //        MonsterData.monsters.remove(monster);
-        monster.setTag("M"+monsterCount++);
+        monster.setTag("M" + getMonsterCount());
+        setMonsterCount(this.monsterCount + 1);
         return monster;
     }
 }

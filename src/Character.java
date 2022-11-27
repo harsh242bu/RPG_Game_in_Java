@@ -38,6 +38,10 @@ public abstract class Character implements Modifiable{
         this.tag = tag;
     }
 
+    public Character clone() throws CloneNotSupportedException {
+        return (Character) super.clone();
+    }
+
     public boolean increaseXp(int xp){
         return level.increaseXp(xp);
     }

@@ -40,6 +40,10 @@ public class Monster extends Character implements Modifiable{
         this.dodge = dodge;
     }
 
+    public Monster clone() throws CloneNotSupportedException {
+        return (Monster) super.clone();
+    }
+
     @Override
     public boolean isAlive(){
         return (getDefense() > 0);

@@ -1,6 +1,7 @@
 public class ChooseHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {
+        Utility.printStrLn(game.getHero().getTag() + " your turn now:");
         GameStaticData.displayActions();
 //        Utility.printStr("Enter a number: ");
 
