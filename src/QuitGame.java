@@ -7,10 +7,12 @@ public class QuitGame implements TurnState{
         Monster monster = game.getMonster();
 
         if(CharacterLocation.anyCharacterReachedNexus(monster)){
-            System.out.println("Heroes lost the game!!");
+            System.out.println("Sorry!! Heroes lost the game!!");
+            System.exit(0);
         }
         else if(CharacterLocation.anyCharacterReachedNexus(hero)){
             System.out.println("Heroes won the game. Congratulations!!");
+            System.exit(0);
         }
         else{
             Utility.printStrLn("Quitting the game...! Thank you for playing");
