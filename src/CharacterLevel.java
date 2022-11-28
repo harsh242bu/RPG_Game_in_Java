@@ -1,5 +1,5 @@
 //Represents xp and level of a character. An abstraction of xp and level.
-public class CharacterLevel {
+public class CharacterLevel implements Cloneable{
     private int level;
     private int xp;
 
@@ -27,6 +27,17 @@ public class CharacterLevel {
 
     public void setXp(int xp) {
         this.xp = xp;
+    }
+
+    @Override
+    public CharacterLevel clone() {
+        CharacterLevel level = null;
+        try{
+            return (CharacterLevel) super.clone();
+        }
+        catch (Exception e){
+            return new CharacterLevel(getLevel(), getXp());
+        }
     }
 
     public boolean increaseXp(int xp){

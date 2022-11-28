@@ -5,6 +5,11 @@ public class IceSpell extends Spell {
     }
 
     @Override
+    public IceSpell clone() {
+        return (IceSpell) super.clone();
+    }
+
+    @Override
     public void printItem(){
         super.printItem();
         System.out.println("Damage");

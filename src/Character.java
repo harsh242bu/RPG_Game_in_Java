@@ -46,7 +46,10 @@ public abstract class Character implements Modifiable, Cloneable {
 
     @Override
     public Character clone() throws CloneNotSupportedException {
-        return (Character) super.clone();
+        Character character = (Character) super.clone();
+
+        character.level = (CharacterLevel) this.level.clone();
+        return character;
     }
 
     public boolean increaseXp(int xp) {

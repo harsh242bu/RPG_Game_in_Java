@@ -36,6 +36,18 @@ public class Spell extends Item {
         this.attrAffected = attrAffected;
     }
 
+    @Override
+    public Spell clone() {
+        Spell spell = null;
+        try{
+            spell = (Spell) super.clone();
+        }
+        catch(Exception e){
+            spell = new Spell(getName(), getCost(), getReqLevel(), getDamage(), getManaCost(), getAttrAffected());
+        }
+        return spell;
+    }
+
     public void getHeader() {
 //        Name/cost/required level/damage/mana cost
 //        System.out.println("Name\tCost\tLevel\tDamage\tMana cost\tCategory");

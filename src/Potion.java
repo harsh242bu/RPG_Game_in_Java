@@ -1,5 +1,6 @@
 // Potion class
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Potion extends Item {
@@ -26,6 +27,23 @@ public class Potion extends Item {
 
     public void setAttrAffected(List<Integer> attrAffected) {
         this.attrAffected = attrAffected;
+    }
+
+    @Override
+    public Potion clone() {
+        Potion potion = null;
+        try{
+            potion = (Potion) super.clone();
+        }
+        catch(Exception e){
+            potion = new Potion(getName(), getCost(), getReqLevel(), getAttrIncrease(), getAttrAffected());
+            potion.attrAffected = new ArrayList<Integer>();
+            for(int attr: getAttrAffected()){
+                potion.attrAffected.add(attr);
+            }
+
+        }
+        return potion;
     }
 
     public void getHeader() {

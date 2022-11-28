@@ -10,7 +10,7 @@ public class Monster extends Character implements Modifiable{
 
     Monster(String name, int level, int damage, int defense, int dodge){
         // defense is hp
-        super("M",name, level, 0);
+        super("M", name, level, 0);
         this.defense = defense;
         this.baseDamage = damage;
         this.dodge = dodge;

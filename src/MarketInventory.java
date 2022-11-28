@@ -1,5 +1,5 @@
 // Contains list of armors, weapons, spells and potions. Used to represent market items as well as hero backpack
-public class MarketInventory {
+public class MarketInventory implements Cloneable{
     private ItemInventory<Weapon> weapons;
     private ItemInventory<Spell> spells;
     private ItemInventory<Potion> potions;
@@ -10,6 +10,35 @@ public class MarketInventory {
         spells = new ItemInventory<Spell>();
         potions = new ItemInventory<Potion>();
         armors = new ItemInventory<Armor>();
+    }
+
+    @Override
+    public MarketInventory clone() {
+        MarketInventory inventory = null;
+        try{
+            inventory = (MarketInventory) super.clone();
+        }
+        catch(Exception e){
+            inventory.weapons = new ItemInventory<Weapon>();
+            inventory.spells = new ItemInventory<Spell>();
+            inventory.potions = new ItemInventory<Potion>();
+            inventory.armors = new ItemInventory<Armor>();
+
+            for(Weapon weapon: getWeapons().getItems()){
+                inventory.weapons.addItem(weapon.clone());
+            }
+            for(Spell spell: getSpells().getItems()){
+                inventory.spells.addItem(spell.clone());
+            }
+            for(Potion potion: getPotions().getItems()){
+                inventory.potions.addItem(potion.clone());
+            }
+            for(Armor armor: getArmors().getItems()){
+                inventory.armors.addItem(armor.clone());
+            }
+        }
+
+        return inventory;
     }
 
     public int numOfSpells(){

@@ -1,5 +1,5 @@
 // Represents an item inside the game. Ex: spell, potion, weapon, armor
-public abstract class Item {
+public abstract class Item implements Cloneable{
     private String name;
     private int cost;
     private int reqLevel;
@@ -32,6 +32,11 @@ public abstract class Item {
 
     public void setReqLevel(int reqLevel) {
         this.reqLevel = reqLevel;
+    }
+
+    @Override
+    public Item clone() throws CloneNotSupportedException {
+        return (Item) super.clone();
     }
 
     public abstract void getHeader();

@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hero extends Character implements Modifiable{
+public class Hero extends Character implements Modifiable, Cloneable{
     // Inject user playing or computer playing behaviour as a strategy pattern
     // Attacking behaviour as strategy pattern ?
 
@@ -21,14 +21,14 @@ public class Hero extends Character implements Modifiable{
 
     // mana/strength/agility/dexterity/starting money/starting experience
     public Hero(String name, int mana, int strength, int agility, int dexterity, int money, int xp) {
-        super(name, 1, xp);
+        super("H", name, 1, xp);
         this.hp = 1 * INITIAL_HP;
         this.mana = mana;
         this.strength = strength;
         this.agility = agility;
         this.dexterity = dexterity;
         this.gold = new Gold(money);
-        this.weapon = new Weapon("Bare_Hands", 0, 1, 180, 2);
+        this.weapon = new Weapon();
         this.backPack = new MarketInventory();
         this.armor = new Armor("None", 0, 1,0);
 //        addItemsToTest();
@@ -112,6 +112,25 @@ public class Hero extends Character implements Modifiable{
 
     public void setGold(Gold gold) {
         this.gold = gold;
+    }
+
+    @Override
+    public Hero clone() {
+        Hero hero = null;
+        try{
+            hero = (Hero) super.clone();
+        }
+        catch(Exception e){
+            hero = new Hero(getName(), getMana(), getStrength(), getAgility(), getDexterity(),
+                    getMoney(), getLevel().getXp());
+        }
+
+        hero.gold = (Gold) this.gold.clone();
+        hero.backPack = new MarketInventory();
+        hero.weapon = new Weapon();
+        hero.armor = (Armor) this.armor.clone();
+
+        return hero;
     }
 
     @Override
@@ -371,6 +390,7 @@ public class Hero extends Character implements Modifiable{
         Weapon newWeapon = backPack.getWeapons().getItem(input - 1);
 
         backPack.addWeapon(oldWeapon);
+        backPack.removeWeapon(newWeapon);
         setWeapon(newWeapon);
     }
 
@@ -385,6 +405,7 @@ public class Hero extends Character implements Modifiable{
         Armor newArmor = backPack.getArmors().getItem(input - 1);
 
         backPack.addArmor(oldArmor);
+        backPack.removeArmor(newArmor);
         setArmor(newArmor);
     }
 

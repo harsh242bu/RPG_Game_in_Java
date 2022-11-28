@@ -3,7 +3,7 @@ public class PotionHeroAction implements HeroActionState {
     public void handleAction(ValorRPG game) {
         Hero hero = game.getHero();
         if(hero.hasPotions()) {
-            hero.choosePotion();
+            hero.consumePotion();
         }
         else {
             Utility.printStrLn("Sorry! You don't have any potions in the inventory!");

@@ -5,6 +5,11 @@ public class FireSpell extends Spell{
     }
 
     @Override
+    public FireSpell clone() {
+        return (FireSpell) super.clone();
+    }
+
+    @Override
     public void printItem(){
         super.printItem();
         System.out.println("Defense");

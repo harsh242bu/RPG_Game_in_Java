@@ -5,6 +5,11 @@ public class LightningSpell extends Spell{
     }
 
     @Override
+    public LightningSpell clone() {
+        return (LightningSpell) super.clone();
+    }
+
+    @Override
     public void printItem(){
         super.printItem();
         System.out.println("Dodge");

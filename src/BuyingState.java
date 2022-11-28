@@ -45,7 +45,7 @@ public class BuyingState implements InMarketState{
         Item item;
         int index = input - 1;
         if (index < armorSize) {
-            item = market.getMarketItems().getArmors().getItem(index);
+            item = market.getMarketItems().getArmors().getItemForMarket(index);
             if (item.getCost() > hero.getMoney()){
                 System.out.println("Cannot buy this item. You don't have enough money!");
             }
@@ -60,7 +60,7 @@ public class BuyingState implements InMarketState{
                 hero.changeMoney(item.getCost()*(-1));
             }
         } else if (index < armorSize + weaponSize) {
-            item = market.getMarketItems().getWeapons().getItem(index - armorSize);
+            item = market.getMarketItems().getWeapons().getItemForMarket(index - armorSize);
             if (item.getCost() > hero.getMoney()){
                 System.out.println("Cannot buy this item. You don't have enough money!");
             }
@@ -76,7 +76,7 @@ public class BuyingState implements InMarketState{
             }
 
         } else if (index < armorSize + weaponSize + spellSize) {
-            item = market.getMarketItems().getSpells().getItem(index - armorSize - weaponSize);
+            item = market.getMarketItems().getSpells().getItemForMarket(index - armorSize - weaponSize);
             if (item.getCost() > hero.getMoney()){
                 System.out.println("Cannot buy this item. You don't have enough money!");
             }
@@ -91,7 +91,7 @@ public class BuyingState implements InMarketState{
                 hero.changeMoney(item.getCost()*(-1));
             }
         } else if (index < total) {
-            item = market.getMarketItems().getPotions().getItem(index - armorSize - weaponSize - spellSize);
+            item = market.getMarketItems().getPotions().getItemForMarket(index - armorSize - weaponSize - spellSize);
             if (item.getCost() > hero.getMoney()){
                 System.out.println("Cannot buy this item. You don't have enough money!");
             }

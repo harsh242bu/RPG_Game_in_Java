@@ -1,5 +1,5 @@
 // Weapon class
-public class Weapon extends Item {
+public class Weapon extends Item implements Cloneable{
     int damage;
     int reqHands;
 
@@ -7,6 +7,12 @@ public class Weapon extends Item {
         super(name, cost, reqLevel);
         this.damage = damage;
         this.reqHands = reqHands;
+    }
+
+    Weapon(){
+        super("Bare_Hands", 0, 1);
+        this.damage = 180;
+        this.reqHands = 2;
     }
 
     public int getDamage() {
@@ -24,6 +30,24 @@ public class Weapon extends Item {
     public void setReqHands(int reqHands) {
         this.reqHands = reqHands;
     }
+
+    @Override
+    public Weapon clone() {
+        Weapon weapon = null;
+        try{
+            weapon = (Weapon) super.clone();
+        }
+        catch(Exception e){
+            weapon = new Weapon(getName(), getCost(), getReqLevel(), getDamage(), getReqHands());
+        }
+
+        return weapon;
+    }
+
+//    @Override
+//    public Weapon clone() throws CloneNotSupportedException {
+//        return (Weapon) super.clone();
+//    }
 
     @Override
     public void getHeader() {

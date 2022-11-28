@@ -145,6 +145,11 @@ public class Utility {
         Scanner scn = new Scanner(System.in);
         String str = scn.nextLine();
         str = str.toLowerCase();
+        while(str.length() == 0){
+            System.out.println("Blank Input!! Enter again: ");
+            str = scn.nextLine();
+            str = str.toLowerCase();
+        }
         return str.substring(0,1);
     }
 

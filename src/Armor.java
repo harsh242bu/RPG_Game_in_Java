@@ -21,6 +21,22 @@ public class Armor extends Item {
         System.out.println(output);
     }
 
+    @Override
+    public Armor clone() {
+        Armor armor = null;
+        try{
+            armor = (Armor) super.clone();
+        }
+        catch(Exception e){
+            armor = new Armor(getName(), getCost(), getReqLevel(), getDamageReduction());
+        }
+
+        return armor;
+    }
+//    @Override
+//    public Armor clone() throws CloneNotSupportedException {
+//        return (Armor) super.clone();
+//    }
 
     @Override
     public void printItem() {
