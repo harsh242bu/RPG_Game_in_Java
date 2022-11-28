@@ -36,9 +36,10 @@ public class Utility {
                 input = scn.nextInt();
                 scn.nextLine();
                 if (input < start || input >= end) {
-                    break;
-                } else {
                     System.out.println("Wrong Input!! Enter again:");
+                }
+                else {
+                    break;
                 }
             } catch (Exception e) {
                 scn.nextLine();
@@ -122,6 +123,7 @@ public class Utility {
                 break;
             }
             System.out.println("Invalid input, try again.");
+            str = scn.nextLine();
         }
 
         String[] list = str.split(" ");
@@ -169,6 +171,15 @@ public class Utility {
             str = str.toLowerCase();
         }
         return str.substring(0, 1);
+    }
+
+    public static String yesNoInput(){
+        String str = inputChar();
+        while(str != "y" && str != "n"){
+            System.out.println("Wrong Input!! Enter again: ");
+            str = inputChar();
+        }
+        return str;
     }
 
     public static int getRandomNum(int bound) {

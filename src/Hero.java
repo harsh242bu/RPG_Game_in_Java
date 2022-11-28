@@ -484,6 +484,12 @@ public class Hero extends Character implements Modifiable, Cloneable {
         setMana(newMana);
     }
 
+    public void printHeroStats(){
+        HeroData.getHeader();
+        this.printCharacter();
+        Utility.newLine();
+    }
+
     public void printHeroDetails() {
         System.out.println("Hero details:");
         Utility.newLine();

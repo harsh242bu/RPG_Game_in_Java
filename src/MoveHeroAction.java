@@ -17,7 +17,7 @@ public class MoveHeroAction implements HeroActionState {
             game.setHeroNextAction(new MoveHeroAction());
         }
         else if (move.equals(GameStaticData.Q)) {
-            game.setTurnState(new QuitGame());
+            game.setNextTurn(new QuitGame());
         }
 
         // Change heroes location here

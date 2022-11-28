@@ -4,7 +4,7 @@ public class ChooseHeroAction implements HeroActionState {
 
         GameStaticData.displayActions();
 
-        int input = Utility.intInput(1, 8);
+        int input = Utility.intInput(1, 9);
 
         switch (input){
             case GameStaticData.CHANGE_WEAPON:
@@ -24,6 +24,10 @@ public class ChooseHeroAction implements HeroActionState {
                 break;
             case GameStaticData.RECALL:
                 game.setHeroNextAction(new RecallHeroAction());
+                break;
+            case GameStaticData.STAY:
+                Utility.printStrLn("You skipped a turn");
+//                game.setHeroNextAction(new RecallHeroAction());
                 break;
             case GameStaticData.QUIT:
                 game.setNextTurn(new QuitGame());

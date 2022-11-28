@@ -13,6 +13,8 @@ public class TeleportHeroAction implements HeroActionState {
                         " for back " + GameStaticData.NEXT.toUpperCase() + " for next to another hero:");
 
         String direction = Utility.validateCharInput(GameStaticData.teleportOtionsList);
-        controller.teleport(hero, lane, direction, game.getGameBoard());
+        if(!controller.teleport(hero, lane, direction, game.getGameBoard())){
+            game.setHeroNextAction(new ChooseHeroAction());
+        }
     }
 }

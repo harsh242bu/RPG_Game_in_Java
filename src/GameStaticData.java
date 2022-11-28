@@ -17,7 +17,8 @@ public class GameStaticData {
     final static int MOVE = 4;
     final static int TELEPORT = 5;
     final static int RECALL = 6;
-    final static int QUIT = 7;
+    final static int STAY = 7;
+    final static int QUIT = 8;
     final static List<String> movesList = new ArrayList<String>() {{ add(W); add(A); add(S); add(D); add(I); add(Q);}};
     final static List<String> teleportOtionsList = new ArrayList<String>() {{ add(BACK); add(NEXT);}};
 
@@ -39,8 +40,9 @@ public class GameStaticData {
         Utility.printStrLn("3. Attack a Monster using weapon or spell (if nearby)");
         Utility.printStrLn("4. Move in the map");
         Utility.printStrLn("5. Teleport to another lane");
-        Utility.printStrLn("6. Recall");
-        Utility.printStrLn("7. Quit game");
+        Utility.printStrLn("6. Recall to base nexus");
+        Utility.printStrLn("7. Stay at the same tile (Skip a turn)");
+        Utility.printStrLn("8. Quit game");
         Utility.newLine();
         Utility.enterNumberPrompt();
     }

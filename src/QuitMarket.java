@@ -3,7 +3,7 @@ public class QuitMarket implements InMarketState{
     @Override
     public void handleInMarketState(Market market, Hero hero) {
         System.out.println("Exit market ? (Y/n): ");
-        String yesNo = Utility.inputChar();
+        String yesNo = Utility.yesNoInput();
         if(yesNo.equals("n")){
             Market.marketOptions();
             int input = Utility.intInput(1, 3);

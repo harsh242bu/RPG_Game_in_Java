@@ -15,7 +15,7 @@ public class SellingState implements InMarketState{
         System.out.println("Armors:");
         hero.getBackPack().getArmors().printItems(counter + 1);
         System.out.println("Sell an armor ? (Y/n): ");
-        yesNo = Utility.inputChar();
+        yesNo = Utility.yesNoInput();
         if(yesNo.equals("y")) {
             System.out.println("Enter an option from above list: ");
             input = Utility.intInput(1, market.getMarketItems().getArmors().getSize() + 1);
@@ -28,7 +28,7 @@ public class SellingState implements InMarketState{
         System.out.println("Weapons:");
         hero.getBackPack().getWeapons().printItems(counter + 1);
         System.out.println("Sell a weapon ? (Y/n): ");
-        yesNo = Utility.inputChar();
+        yesNo = Utility.yesNoInput();
         if(yesNo.equals("y")) {
             System.out.println("Enter an option from above list: ");
             input = Utility.intInput(1, market.getMarketItems().getWeapons().getSize() + 1);
@@ -41,7 +41,7 @@ public class SellingState implements InMarketState{
         System.out.println("Spells:");
         hero.getBackPack().getSpells().printItems(counter + 1);
         System.out.println("Sell a spell ? (Y/n): ");
-        yesNo = Utility.inputChar();
+        yesNo = Utility.yesNoInput();
         if(yesNo.equals("y")) {
             System.out.println("Enter an option from above list: ");
             input = Utility.intInput(1, market.getMarketItems().getSpells().getSize() + 1);
@@ -54,7 +54,7 @@ public class SellingState implements InMarketState{
         System.out.println("Potions:");
         hero.getBackPack().getPotions().printItems(counter + 1);
         System.out.println("Sell a potion ? (Y/n): ");
-        yesNo = Utility.inputChar();
+        yesNo = Utility.yesNoInput();
         if(yesNo.equals("y")) {
             System.out.println("Enter an option from above list: ");
             input = Utility.intInput(1, market.getMarketItems().getPotions().getSize() + 1);

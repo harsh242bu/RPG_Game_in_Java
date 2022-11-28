@@ -126,4 +126,10 @@ public class Monster extends Character implements Modifiable {
             System.out.println(getName() + " dodged the attack");
         }
     }
+
+    public void printMonsterStats() {
+        MonsterData.getMonsterHeader();
+        this.printCharacter();
+        Utility.newLine();
+    }
 }

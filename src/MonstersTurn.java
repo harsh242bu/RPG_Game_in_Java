@@ -7,6 +7,7 @@ public class MonstersTurn implements TurnState{
         int monsterIndex = game.getMonsterTurnIndex();
         if(game.isMonsterAlive()){
             Utility.printStrLn(game.getMonster().getTag() + " turn now:");
+            game.getMonster().printMonsterStats();
             Utility.printStrLn(game.getGameBoard().printBoardWithCharacter());
 
             Hero hero = CharacterLocation.getSurroundingHero(game.getMonster());;

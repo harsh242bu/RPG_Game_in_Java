@@ -182,7 +182,11 @@ public class Controller {
             if(p!=null && ValidateMove.checkMapRange(p)&&ValidateMove.checkInaccessible(p)&&ValidateMove.checkDuplicateHero(p)) {
                 CharacterLocation.changeLocation(character, p,board);
                 return true;
-            }else return false;
+            }else {
+                Utility.printStrLn("Wrong Teleport action!! Choose again:");
+                Utility.newLine();
+                return false;
+            }
         }catch (Exception e){
             return false;
         }
