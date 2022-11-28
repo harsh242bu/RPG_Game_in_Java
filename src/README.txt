@@ -268,7 +268,7 @@ to cater to the needs of new assignment.
 
 ## How to compile and run
 ---------------------------------------------------------------------------
-1. Navigate to the directory "CS611_Assignment_3_U08897332/src" after unzipping the files
+1. Navigate to the directory "CS611_Assignment_4/src" after unzipping the files
 2. Run the following instructions:
 javac *.java
 java Main
@@ -276,4 +276,1254 @@ java Main
 
 ## Input/Output Example
 ---------------------------------------------------------------------------
+
+Legends of Valor is played in an 8x8 grid of spaces. The grid is divided in three lanes, each
+separated by a column of impassible spaces. Each lane has a width of two spaces. Each space
+can hold up to one monster and up to one hero. A space cannot hold two monsters or two
+heroes.
+
+The first two columns are the first (top) lane. The third column is a wall between the first and
+the second lane. The fourth and the fifth columns are the second (middle) lane. The sixth
+column is another wall. The seventh and eighth columns are the third (bottom) lane. The first
+and the last row will represent a Nexus. The first row (at the top of the screen) is the monsters’
+Nexus while the last row (at the bottom of the screen) is the heroes’ Nexus. See the layout
+below:
+
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+
+There are some features for the game:
+1. Monster will randomly move forward or to the side with some probability.
+2. Tile have different functionality and can enhance different hero attributes.
+The game will start in 3 seconds, enjoy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+3
+
+
+
+
+2
+
+
+
+
+1
+
+
+
+
+
+Select your party from the list of Heroes below. (Max: 3 Heroes allowed)
+Warriors - Favored on Strength and Agility
+No. Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+1.	H         Four_Arms        100       100       700       500       600       1354      1(7/10)
+2.	H         Diamond_Head     100       600       700       800       500       2500      1(8/10)
+3.	H         Cannon_Bolt      100       300       900       500       750       2546      1(6/10)
+4.	H         Heat_Blast       100       200       750       650       700       2500      1(7/10)
+5.	H         Shock_Rock       100       400       800       400       700       2500      1(7/10)
+
+Sorcerers - Favored on Agility and Dexterity
+No. Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+6.	H         Grey_Matter      100       1300      750       450       500       2500      1(9/10)
+7.	H         Over_Flow        100       900       800       500       650       2500      1(5/10)
+8.	H         Rathy            100       800       800       800       800       2500      1(8/10)
+9.	H         Stink_Fly        100       900       800       700       400       2500      1(7/10)
+10.	H         Upgrade          100       800       850       400       600       2500      1(6/10)
+
+Paladins - Favored on Dexterity and Strength
+No. Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+11.	H         Wild_Vine        100       300       750       650       700       2500      1(7/10)
+12.	H         XLR8             100       300       750       700       700       2500      1(7/10)
+13.	H         Crystal_Fist     100       250       650       600       350       2500      1(4/10)
+14.	H         Boot_Leg         100       100       600       500       400       2500      1(5/10)
+15.	H         Wrecking_Bolt    100       500       500       500       500       2500      1(5/10)
+
+Enter Hero numbers(max 3) separated by space. For ex: 1 5 7
+1 3 7
+
+You have chosen the following heroes:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        100       100       700       500       600       1354      1(7/10)
+H2        Cannon_Bolt      100       300       900       500       750       2546      1(6/10)
+H3        Over_Flow        100       900       800       500       650       2500      1(5/10)
+
+
+Game Board
+      M1          M2          M3        Blue is nexus. Can buy items and refill mana and HP.
+
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+H1          H2          H3
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        100       100       700       500       600       1354      1(7/10)
+
+You have arrived at the Market!!
+Want to go inside ?? (Y/n): n
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+      M1          M2          M3        Blue is nexus. Can buy items and refill mana and HP.
+
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+H1                                      Green is bush. Can increase the dexterity for hero.
+            H2          H3
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       500       750       2546      1(6/10)
+
+You have arrived at the Market!!
+Want to go inside ?? (Y/n): n
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+      M1          M2          M3        Blue is nexus. Can buy items and refill mana and HP.
+
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+H1          H2                          Green is bush. Can increase the dexterity for hero.
+                        H3
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        100       900       800       500       650       2500      1(5/10)
+
+You have arrived at the Market!!
+Want to go inside ?? (Y/n): n
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+M1 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+
+Game Board
+      M1          M2          M3        Blue is nexus. Can buy items and refill mana and HP.
+
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+H1          H2          H3              Green is bush. Can increase the dexterity for hero.
+
+
+
+M2 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M2             Dormamu             100            35             200            10             1
+
+
+Game Board
+                  M2          M3        Blue is nexus. Can buy items and refill mana and HP.
+      M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+H1          H2          H3              Green is bush. Can increase the dexterity for hero.
+
+
+
+M3 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M3             Juggernaut          100            35             350            35             1
+
+
+Game Board
+              M2              M3        Blue is nexus. Can buy items and refill mana and HP.
+      M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+H1          H2          H3              Green is bush. Can increase the dexterity for hero.
+
+
+1 game rounds complete
+
+
+Game Board
+              M2          M3            Blue is nexus. Can buy items and refill mana and HP.
+      M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+H1          H2          H3              Green is bush. Can increase the dexterity for hero.
+
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        100       100       700       550       600       1354      1(7/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+              M2          M3            Blue is nexus. Can buy items and refill mana and HP.
+      M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+H1
+            H2          H3              Green is bush. Can increase the dexterity for hero.
+
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       550       750       2546      1(6/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+              M2          M3            Blue is nexus. Can buy items and refill mana and HP.
+      M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+H1          H2
+                        H3              Green is bush. Can increase the dexterity for hero.
+
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        100       900       800       500       715       2500      1(5/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+M1 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+
+Game Board
+              M2          M3            Blue is nexus. Can buy items and refill mana and HP.
+      M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+H1          H2          H3
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+
+M2 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M2             Dormamu             100            35             200            10             1
+
+
+Game Board
+              M2          M3            Blue is nexus. Can buy items and refill mana and HP.
+  M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+H1          H2          H3
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+Cannot go through the wall
+
+M3 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M3             Juggernaut          100            35             350            35             1
+
+
+Game Board
+                  M2      M3            Blue is nexus. Can buy items and refill mana and HP.
+  M1
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+H1          H2          H3
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+2 game rounds complete
+
+
+Game Board
+                  M2                    Blue is nexus. Can buy items and refill mana and HP.
+  M1                      M3
+                                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+H1          H2          H3
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        100       100       700       500       600       1354      1(7/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+                  M2                    Blue is nexus. Can buy items and refill mana and HP.
+  M1                      M3
+                                        Gray is cave. Can increase the agility for hero.
+
+H1                                      Red is koulou. Can increase the strength for hero.
+            H2          H3
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       500       825       2546      1(6/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+                  M2                    Blue is nexus. Can buy items and refill mana and HP.
+  M1                      M3
+                                        Gray is cave. Can increase the agility for hero.
+
+H1          H2                          Red is koulou. Can increase the strength for hero.
+                        H3
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        100       900       880       500       650       2500      1(5/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+M1 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+
+Game Board
+                  M2                    Blue is nexus. Can buy items and refill mana and HP.
+  M1                      M3
+                                        Gray is cave. Can increase the agility for hero.
+
+H1          H2          H3              Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+
+M2 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M2             Dormamu             100            35             200            10             1
+
+
+Game Board
+                  M2                    Blue is nexus. Can buy items and refill mana and HP.
+                          M3
+  M1                                    Gray is cave. Can increase the agility for hero.
+
+H1          H2          H3              Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+
+M3 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M3             Juggernaut          100            35             350            35             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                  M2      M3
+  M1                                    Gray is cave. Can increase the agility for hero.
+
+H1          H2          H3              Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+3 game rounds complete
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                  M2
+  M1                      M3            Gray is cave. Can increase the agility for hero.
+
+H1          H2          H3              Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        100       100       700       500       600       1354      1(7/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                  M2
+  M1                      M3            Gray is cave. Can increase the agility for hero.
+H1
+            H2          H3              Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       550       750       2546      1(6/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                  M2
+  M1                      M3            Gray is cave. Can increase the agility for hero.
+H1          H2
+                        H3              Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        100       900       880       500       650       2500      1(5/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+M1 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                  M2
+  M1                      M3            Gray is cave. Can increase the agility for hero.
+H1          H2          H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+You are fighting against the following:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        100       100       700       500       660       1354      1(7/10)
+
+Juggernaut attacked  for 35 damage !
+
+M2 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M2             Dormamu             100            35             200            10             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                  M2
+  M1                      M3            Gray is cave. Can increase the agility for hero.
+H1          H2          H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+
+M3 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M3             Juggernaut          100            35             350            35             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1              M2      M3            Gray is cave. Can increase the agility for hero.
+H1          H2          H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+You are fighting against the following:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        100       900       800       550       650       2500      1(5/10)
+
+Juggernaut attacked  for 35 damage !
+4 game rounds complete
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1              M2      M3            Gray is cave. Can increase the agility for hero.
+H1          H2          H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        65        100       700       500       660       1354      1(7/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 3
+You are fighting against the following:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+Choose one of the actions:
+1: Attack using Bare_Hands weapon
+2: Check out heroes info
+1
+Four_Arms attacked using Bare_Hands for 132 damage !
+M1 monster (Juggernaut) dodged the attack
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1              M2      M3            Gray is cave. Can increase the agility for hero.
+H1          H2          H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       500       750       2546      1(6/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 5
+Which lane you want to teleport to:
+1
+Which side you want to teleport to B for back N for next to another hero:
+n
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1              M2      M3            Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        65        900       800       550       650       2500      1(5/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 3
+You are fighting against the following:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M3             Juggernaut          100            35             350            35             1
+
+Choose one of the actions:
+1: Attack using Bare_Hands weapon
+2: Check out heroes info
+1
+Over_Flow attacked using Bare_Hands for 147 damage !
+
+M1 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1              M2      M3            Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+You are fighting against the following:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        65        100       700       500       660       1354      1(7/10)
+
+Juggernaut attacked  for 35 damage !
+
+M2 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M2             Dormamu             100            35             200            10             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1              M2      M3            Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1          M2          M3            Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+M3 monster is dead!
+5 game rounds complete
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1          M2                        Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        30        100       700       500       660       1854      1(9/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 3
+You are fighting against the following:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          100            35             350            35             1
+
+Choose one of the actions:
+1: Attack using Bare_Hands weapon
+2: Check out heroes info
+1
+Four_Arms attacked using Bare_Hands for 132 damage !
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1          M2                        Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       550       750       3046      1(8/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 3
+You are fighting against the following:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M1             Juggernaut          -164           35             350            35             1
+
+Choose one of the actions:
+1: Attack using Bare_Hands weapon
+2: Check out heroes info
+1
+Cannon_Bolt attacked using Bare_Hands for 162 damage !
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1          M2                        Gray is cave. Can increase the agility for hero.
+H1  H2                  H3
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        65        900       800       550       650       3000      1(7/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+  M1          M2        H3              Gray is cave. Can increase the agility for hero.
+H1  H2
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+M1 monster is dead!
+Hero H1 leveled up !!
+6 game rounds complete
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+              M2        H3              Gray is cave. Can increase the agility for hero.
+H1  H2
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        30        100       700       500       660       2354      2(11/20)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+H1            M2        H3              Gray is cave. Can increase the agility for hero.
+    H2
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       550       750       3546      1(10/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 5
+Which lane you want to teleport to:
+2
+Which side you want to teleport to B for back N for next to another hero:
+b
+Wrong Teleport action!! Choose again:
+
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 5
+Which lane you want to teleport to:
+2
+Which side you want to teleport to B for back N for next to another hero:
+b
+Wrong Teleport action!! Choose again:
+
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 6
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+
+H1            M2        H3              Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+            H2
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        65        900       880       500       650       3500      1(9/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+M2 turn now:
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M2             Dormamu             100            35             200            10             1
+
+
+Game Board
+                                        Blue is nexus. Can buy items and refill mana and HP.
+                        H3
+H1            M2                        Gray is cave. Can increase the agility for hero.
+
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+            H2
+
+Caution!! New monsters spawned in the Game.
+Tag            Name                HP             Damage         Defense        Dodge Chance   Level
+M4             Sabertooth          200            55             500            20             2
+M5             Sabertooth          200            55             500            20             2
+M6             Sabertooth          200            55             500            20             2
+
+7 game rounds complete
+
+
+Game Board
+      M4          M5          M6        Blue is nexus. Can buy items and refill mana and HP.
+                        H3
+H1                                      Gray is cave. Can increase the agility for hero.
+              M2
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+            H2
+
+H1 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H1        Four_Arms        30        100       700       550       600       2354      2(11/20)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+      M4          M5          M6        Blue is nexus. Can buy items and refill mana and HP.
+H1                      H3
+                                        Gray is cave. Can increase the agility for hero.
+              M2
+                                        Red is koulou. Can increase the strength for hero.
+
+                                        Green is bush. Can increase the dexterity for hero.
+            H2
+
+H2 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H2        Cannon_Bolt      100       300       900       500       750       3546      1(10/10)
+
+You have arrived at the Market!!
+Want to go inside ?? (Y/n): n
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+      M4          M5          M6        Blue is nexus. Can buy items and refill mana and HP.
+H1                      H3
+                                        Gray is cave. Can increase the agility for hero.
+              M2
+                                        Red is koulou. Can increase the strength for hero.
+
+            H2                          Green is bush. Can increase the dexterity for hero.
+
+
+H3 your turn now:
+Tag       Name             HP        Mana      Strength  Agility   Dexterity Money     Level
+H3        Over_Flow        65        900       800       550       650       3500      1(9/10)
+
+Choose from one of the following actions:
+1. Choose a weapon or armor
+2. Use a potion
+3. Attack a Monster using weapon or spell (if nearby)
+4. Move in the map
+5. Teleport to another lane
+6. Recall to base nexus
+7. Stay at the same tile (Skip a turn)
+8. Quit game
+
+Enter a number: 4
+Enter your move from the following:
+W - To go up
+A - To go left
+S - To go down
+D - To go right
+I - To show info
+Q - To quit the game
+w
+
+Game Board
+      M4          M5    H3    M6        Blue is nexus. Can buy items and refill mana and HP.
+H1
+                                        Gray is cave. Can increase the agility for hero.
+              M2
+                                        Red is koulou. Can increase the strength for hero.
+
+            H2                          Green is bush. Can increase the dexterity for hero.
+
+
+Heroes won the game. Congratulations!!
 
