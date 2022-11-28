@@ -18,19 +18,19 @@ public class CharacterLocation {
      * respawn monster give three mosnters and give them a location
      */
     public static void respawnMonsters(List<Monster> list){
-//        Monster monster = list.get(0);
-//        addCharacter(monster,new Position(0,1));
-//        monster = list.get(1);
-//        addCharacter(monster,new Position(0,4));
-//        monster = list.get(2);
-//        addCharacter(monster,new Position(0,7));
-
         Monster monster = list.get(0);
-        addCharacter(monster,new Position(2,1));
+        addCharacter(monster,new Position(0,1));
         monster = list.get(1);
-        addCharacter(monster,new Position(2,4));
+        addCharacter(monster,new Position(0,4));
         monster = list.get(2);
-        addCharacter(monster,new Position(5,7));
+        addCharacter(monster,new Position(0,7));
+
+//        Monster monster = list.get(0);
+//        addCharacter(monster,new Position(2,1));
+//        monster = list.get(1);
+//        addCharacter(monster,new Position(2,4));
+//        monster = list.get(2);
+//        addCharacter(monster,new Position(5,7));
     }
 
     /**
