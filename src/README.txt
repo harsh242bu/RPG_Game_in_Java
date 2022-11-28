@@ -7,9 +7,9 @@ Team partner 1
     BU ID: U08897332
 
 Team partner 2
-    Name: 
-    Email: 
-    BU ID: 
+    Name: Yujie Yan
+    Email: cdyyj@bu.edu
+    BU ID: U13600938
 
 
 Temp notes:
