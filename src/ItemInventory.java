@@ -1,6 +1,5 @@
 // Abstraction of list of items
 
-import sun.nio.cs.UTF_32LE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,12 +39,11 @@ public class ItemInventory<T extends Item> {
     }
 
     public T getItemForMarket(int index) {
-        T item =null;
+        T item = null;
         try {
-            item = (T)items.get(index).clone();
+            item = (T) items.get(index).clone();
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return item;

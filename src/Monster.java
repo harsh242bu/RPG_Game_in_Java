@@ -1,16 +1,16 @@
 // Monster class with attributes specific to monster
-public class Monster extends Character implements Modifiable{
+public class Monster extends Character implements Modifiable {
     //    name, level, hp, base_damage, defense, dodge
 
     private int baseDamage; // can be injected using strategy pattern instead bcoz this can also be
-                        // applied to other game elements like car in a game
+    // applied to other game elements like car in a game
 
     private int defense; // like an armor
     private int dodge;
 
-    Monster(String name, int level, int damage, int defense, int dodge){
+    Monster(String name, int level, int damage, int defense, int dodge) {
         // defense is hp
-        super("M", name, level, 0, level*100);
+        super("M", name, level, 0, level * 100);
         this.defense = defense;
         this.baseDamage = damage;
         this.dodge = dodge;
@@ -45,45 +45,47 @@ public class Monster extends Character implements Modifiable{
     }
 
     @Override
-    public boolean isAlive(){
+    public boolean isAlive() {
         return (getDefense() > 0);
     }
 
     @Override
     public void printCharacter() {
 //        Name level damage defense dodge chance
-        System.out.print(getTag() + "\t");
-        System.out.print(getName() + "\t");
-        if(getName().length() < 8){
-            System.out.print("\t\t");
-        }
-        else if(getName().length() < 12){
-            System.out.print("\t");
-        }
-        for(int attr: MONSTER_ATTRIBUTES){
-            System.out.print(Utility.getString(getAttribute(attr)));
-            if(getAttribute(attr) > 999)
-                System.out.print("\t");
-            else System.out.print("\t\t");
-
-        }
-
-        Utility.newLine();
+//        System.out.print(getTag() + "\t");
+//        System.out.print(getName() + "\t");
+//        if(getName().length() < 8){
+//            System.out.print("\t\t");
+//        }
+//        else if(getName().length() < 12){
+//            System.out.print("\t");
+//        }
+//        for(int attr: MONSTER_ATTRIBUTES){
+//            System.out.print(Utility.getString(getAttribute(attr)));
+//            if(getAttribute(attr) > 999)
+//                System.out.print("\t");
+//            else System.out.print("\t\t");
+//
+//        }
+//
+//        Utility.newLine();
+        String output = String.format("%-15s%-15s%-15s%-15s%-15s%-15s", getTag(), getHp(), getBaseDamage(), getDefense(), getDodge(), getIntLevel());
+        System.out.println(output);
     }
 
-    public int getAttribute(int type){
-        switch (type){
-            case(DEFENSE):
+    public int getAttribute(int type) {
+        switch (type) {
+            case (DEFENSE):
                 return this.defense;
-            case(AGILITY):
+            case (AGILITY):
                 return this.dodge;
-            case(XP):
+            case (XP):
                 return this.getLevel().getXp();
-            case(LEVEL):
+            case (LEVEL):
                 return this.getIntLevel();
-            case(DAMAGE):
+            case (DAMAGE):
                 return this.getBaseDamage();
-            case(HP):
+            case (HP):
                 return this.getHp();
             default:
                 return 0;
@@ -100,14 +102,14 @@ public class Monster extends Character implements Modifiable{
 
     @Override
     public void modify(int type, int value) {
-        switch (type){
-            case(DEFENSE):
+        switch (type) {
+            case (DEFENSE):
                 this.defense += value;
                 break;
-            case(DAMAGE):
+            case (DAMAGE):
                 this.baseDamage += value;
                 break;
-            case(AGILITY):
+            case (AGILITY):
                 this.dodge += value;
                 break;
         }
@@ -117,11 +119,10 @@ public class Monster extends Character implements Modifiable{
     public void dealAttack(Attack attack) {
         // calculate dodge chance here
         int num = Utility.getIntForDouble(getDodge());
-        if(!Utility.checkProbability(num)){
+        if (!Utility.checkProbability(num)) {
             // change the attack according to defense
             super.dealAttack(attack);
-        }
-        else{
+        } else {
             System.out.println(getName() + " dodged the attack");
         }
     }

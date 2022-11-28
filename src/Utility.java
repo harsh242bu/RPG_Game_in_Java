@@ -35,17 +35,17 @@ public class Utility {
             try {
                 input = scn.nextInt();
                 scn.nextLine();
-                break;
+                if (input < start || input >= end) {
+                    break;
+                } else {
+                    System.out.println("Wrong Input!! Enter again:");
+                }
             } catch (Exception e) {
                 scn.nextLine();
                 System.out.println("Invalid input.");
             }
         }
 
-        while (input < start || input >= end) {
-            System.out.println("Wrong Input!! Enter again:");
-            input = scn.nextInt();
-        }
         return input;
     }
 
@@ -117,6 +117,12 @@ public class Utility {
     public static List<Integer> listInput() {
         Scanner scn = new Scanner(System.in);
         String str = scn.nextLine();
+        while (true) {
+            if (str.matches("^(\\d+) (\\d+) (\\d+)$")) {
+                break;
+            }
+            System.out.println("Invalid input, try again.");
+        }
 
         String[] list = str.split(" ");
         List<Integer> intList = new ArrayList<Integer>();
