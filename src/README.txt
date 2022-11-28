@@ -172,6 +172,25 @@ HeroAttackOptions.java - Contains list of attack options.
 MarketInventory.java - Contains list of armors, weapons, spells and potions. Used to represent market items as well as hero backpack
 Utility.java - Utility class containing utility functions
 
+Board.java contains the main board with the functionality of printing the board
+
+BushTile.java, CaveTile.java, KoulouTile.java conatins different tiles to enhance the ability for the hero
+
+Controller.java contains the every action related to the movement
+
+GameInstruction.java contain the instruction for the game
+
+CharacterLocation.java link the player and the board
+
+Position.java contains the position object
+
+TileStatic.java contains the utils for printing the tile with different color
+
+ValidateMove.java validate the movement for the character
+
+
+
+
 
 ## Design Patterns implemented
 ---------------------------------------------------------------------------

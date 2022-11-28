@@ -1,0 +1,4 @@
+1. We design the location as a class to link the player and the board. Because by doing this, the board and player are not depend on each other which reduce the coupling.
+2. We design the factories and use clone to copy the object. Because this can same our time when creating new objects with complicated arguments.
+3. We design the controller to move the characters on the map. Because this distinguish the moving and other action.
+4.
