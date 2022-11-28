@@ -14,6 +14,9 @@ Analysis of Harsh's old design:
     So we adopted the cell/tile architecture from Yan's design. And resolved the responsibility issue in the new game
 
 Analysis of Yan's old design:
+    A flaw in my old design is that i combine all the game process together which made the game process not extendable.
+    In the new design, we made the use of harsh's state machine design. The game flow is manageable and easy to be modified.
+    And the game flow is more clear using the state machine design.
 
 
 Harsh design pieces:
@@ -36,7 +39,6 @@ Important implementation points -
 2. We design the factories and use clone to copy the object. Because this can save our time when creating new objects
     with complicated arguments.
 3. We design the controller to move the characters on the map. Because this distinguish the moving and other action.
-4.
 
 Summary - By implementing the hybrid approach we eliminated flaws from both the design. The new design is much more robust
             and extendable. This new design meets our expectation for the new Legends of Valor game.
