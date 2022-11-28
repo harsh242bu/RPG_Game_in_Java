@@ -88,15 +88,15 @@ Battle state machine:
 
 
 Market.java - Implemented market using this class. It contains various weapons, armors, spells, potions etc. All the
-                items that hero can buy. Also, implemented market
+                items that hero can buy. Also, implemented market using state machine design pattern
 
 Market state machine:
     
     Implemented market logic using state machine. 
     
     InMarketState.java - Interface containing handle state method. All the concrete states will be an instance of this class.
-    BuyingState.java - Concrete market state. Handels the buying logic in the market. 
-    SellingState.java - Concrerte market state. Handels all the selling logic inside market. 
+    BuyingState.java - Concrete market state. Handles the buying logic in the market.
+    SellingState.java - Concrete market state. Handles all the selling logic inside market.
     QuitMarket.java - Responsible for getting out of the market.
 
 
@@ -104,7 +104,7 @@ Item.java - Represent various items used in the game. Contains common property s
 
 ItemInventory.java - Represents list of items
 
-Following classes are sub classes of Item.java class. These class represents specific items in the game.
+Following classes are subclasses of Item.java class. These class represents specific items in the game.
     
     Spell.java - Contains attribute specific to Spell
     Armor.java - Contains attribute specific to Armor
@@ -113,17 +113,21 @@ Following classes are sub classes of Item.java class. These class represents spe
 
 Following classes represents different types of spells. Mainly these classes vary in affected attribute 
 
-    IceSpell.java
-    FireSpell.java
-    LightningSpell.java
+    IceSpell.java - Affects the damage attribute of the monster
+    FireSpell.java - Affects the defense attribute of the monster
+    LightningSpell.java - Affects the agility attribute of the monster
 
-Cell.java - Cell is a location on the board
+Tile.java - Tile is a basic unit on the board. The board is made up of tiles
     
-    Following classes represents different types of cells/locations on the board. 
+    Following classes represents different types of tiles on the board.
 
-        BlockedCell.java
-        CommonCell.java
-        MarketCell.java
+        BushTile.java
+        CaveTile.java
+        CommonTile.java
+        InaccessibleTile
+        KoulouTile
+        MarketTile.java
+        NexusTile.jave
 
 Attack.java - Attack object, abstraction of the hero and monster attack
 
