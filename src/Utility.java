@@ -27,6 +27,10 @@ public class Utility {
         return str;
     }
 
+    public static void printNum1(){
+        System.out.print("1. \t");
+    }
+
     public static int intInput(int start, int end) {
         //  start included, end not included
         Scanner scn = new Scanner(System.in);

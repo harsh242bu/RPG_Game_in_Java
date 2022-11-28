@@ -26,9 +26,9 @@ public class CharacterLocation {
         addCharacter(monster,new Position(0,7));
 
 //        Monster monster = list.get(0);
-//        addCharacter(monster,new Position(2,1));
+//        addCharacter(monster,new Position(5,1));
 //        monster = list.get(1);
-//        addCharacter(monster,new Position(2,4));
+//        addCharacter(monster,new Position(5,4));
 //        monster = list.get(2);
 //        addCharacter(monster,new Position(5,7));
     }

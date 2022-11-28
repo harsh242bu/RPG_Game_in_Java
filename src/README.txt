@@ -28,7 +28,7 @@ Action State -
 ---------------------------------------------------------------------------
 Data classes:
     All these classes contain some static data which is being used in the game. I used these classes 
-    to hardcode the data required by the game. Most of these classes are self explanatory.
+    to hardcode the data required by the game. Most of these classes are self-explanatory.
 
     Spell data classes: Following classes contains data about different types of spells in the game        
 
@@ -50,10 +50,6 @@ Data classes:
         SorcerersData.java
         WarriorData.java
 
-    Cell data class: Contains information about types of cells defined in the game.
-
-        CellData.java
-
     Monster data class: Contains data about different types of monsters.
 
         MonsterData.java
@@ -61,22 +57,25 @@ Data classes:
         ExoskeletonsData.java
         SpiritsData.java
 
-    GameMovesData.java - Contains information about the different moves possible in the game. For ex: W, A, S, D, Q, I, etc.
+    GameStaticData.java - Contains information about the different actions and moves we can perform in the game.
+                          For ex: Move options - W, A, S, D, Q, I, etc.
 
 
 Game State machine classes:
     
-    GameState.java - Game state machine interface. It has handle state method. Using state machine pattern to switch 
-    between market and turn.
+    TurnState.java - Controls the turn of heroes and monsters. Responsible for passing the turn between hero and monster
+    and also among themselves.
 
-    Concrete states: Following classes are the concrete states of GameState interface. These classes contains concrete 
-    implementation of handle state method. 
+    Concrete states: Following classes are the concrete states of TurnState interface. These classes contain concrete
+    implementation of handle turn method (handleNextTurn).
 
-        MarketState.java
-        MoveState.java
-        QuitGame.java
+        HeroesTurn.java - Handles heroes turns. Responsible for passing the turn from H1 to H2 to H3...and so on
 
-Battle.java - Battle object is used to create a battle given the probability of battle.
+        MonstersTurn.java - Handles monsters turns. Responsible for passing the turn from M1 to M2 to M3...and so on
+
+        QuitGame.java - Responsible for quitting the game
+
+Battle.java - Battle object is used to create a battle between Hero and Monster.
 
 Battle state machine:
 
@@ -84,12 +83,12 @@ Battle state machine:
 
     Following classes represent concrete implementation of battle state
 
-        HeroTurn.java
-        MonsterTurn.java
-        QuitBattle.java
+        HeroAttack.java
+        MonsterAttack.java
 
 
-Market.java - Implemented market using this class. It contains various weapons, armors, spells, potions etc. All the itmes that hero can buy.
+Market.java - Implemented market using this class. It contains various weapons, armors, spells, potions etc. All the
+                items that hero can buy. Also, implemented market
 
 Market state machine:
     

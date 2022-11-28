@@ -36,7 +36,7 @@ public class MonsterData {
     //    Name/level/damage/defense/dodge chance
     public static void getMonsterHeader() {
 //        System.out.println("Tag\tName\t\t\tLevel\tDamage\tDefense\tDodge chance\tHP");
-        String output = String.format("%-15s%-15s%-15s%-15s%-15s%-15s", "Tag", "HP", "Damage", "Defense", "Dodge Chance", "Level");
+        String output = String.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s", "Tag", "Name", "HP", "Damage", "Defense", "Dodge Chance", "Level");
         System.out.println(output);
     }
 

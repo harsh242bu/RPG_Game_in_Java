@@ -56,6 +56,7 @@ public class BuyingState implements InMarketState{
             else{
                 System.out.println("You bought the following item:");
                 item.getHeader();
+                Utility.printNum1();
                 item.printItem();
                 hero.getBackPack().addArmor(item);
                 hero.changeMoney(item.getCost()*(-1));
@@ -71,6 +72,7 @@ public class BuyingState implements InMarketState{
             else{
                 System.out.println("You bought the following item:");
                 item.getHeader();
+                Utility.printNum1();
                 item.printItem();
                 hero.getBackPack().addWeapon(item);
                 hero.changeMoney(item.getCost()*(-1));
@@ -87,6 +89,7 @@ public class BuyingState implements InMarketState{
             else{
                 System.out.println("You bought the following item:");
                 item.getHeader();
+                Utility.printNum1();
                 item.printItem();
                 hero.getBackPack().addSpell(item);
                 hero.changeMoney(item.getCost()*(-1));
@@ -102,6 +105,7 @@ public class BuyingState implements InMarketState{
             else{
                 System.out.println("You bought the following item:");
                 item.getHeader();
+                Utility.printNum1();
                 item.printItem();
                 hero.getBackPack().addPotion(item);
                 hero.changeMoney(item.getCost()*(-1));

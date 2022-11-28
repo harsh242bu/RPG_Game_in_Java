@@ -5,6 +5,10 @@ public class MonstersTurn implements TurnState{
         // check monsters alive else remove from the game
         Utility.newLine();
         int monsterIndex = game.getMonsterTurnIndex();
+        if(game.getMonsters().size() == 0){
+            game.setNextTurn(new HeroesTurn());
+        }
+
         if(game.isMonsterAlive()){
             Utility.printStrLn(game.getMonster().getTag() + " turn now:");
             game.getMonster().printMonsterStats();

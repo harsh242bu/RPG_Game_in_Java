@@ -69,7 +69,7 @@ public class Monster extends Character implements Modifiable {
 //        }
 //
 //        Utility.newLine();
-        String output = String.format("%-15s%-15s%-15s%-15s%-15s%-15s", getTag(), getHp(), getBaseDamage(), getDefense(), getDodge(), getIntLevel());
+        String output = String.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s", getTag(), getName(), getHp(), getBaseDamage(), getDefense(), getDodge(), getIntLevel());
         System.out.println(output);
     }
 

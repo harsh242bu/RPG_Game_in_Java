@@ -16,7 +16,7 @@ public class Armor extends Item {
     }
 
     public void getHeader() {
-        String output = String.format("%-4s %-17s %-10s %-18s %-10s", "No.", "Name", "Cost", "Required Level", "Damage");
+        String output = String.format("%-5s %-17s %-10s %-18s %-10s", "No.", "Name", "Cost", "Required Level", "Damage");
 //        System.out.println("Name\t\tCost\tRequired level\tDamage");
         System.out.println(output);
     }
