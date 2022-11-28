@@ -44,7 +44,6 @@ public class CharacterLevel implements Cloneable{
         boolean flag = false;
         this.xp += xp;
         if(this.xp > this.level*10){
-            setXp(this.xp - this.level*10);
             setLevel(this.level + 1);
             flag = true;
         }

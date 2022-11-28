@@ -21,6 +21,13 @@ public class MonstersTurn implements TurnState{
         else{
             Utility.printStrLn(game.getGameBoard().printBoardWithCharacter());
             Utility.printStrLn(game.getMonster().getTag() + " monster is dead!");
+            for(Character character: game.getHeroes().getLegion()){
+                Hero hero = (Hero) character;
+                if(hero.increaseXp(2 * game.getMonster().getIntLevel())){
+                    Utility.printStrLn("Hero " + hero.getTag() + " leveled up !!");
+                };
+                hero.getGold().setAmount(hero.getMoney() + 500 * game.getMonster().getIntLevel());
+            }
             CharacterLocation.removeMonster(game.getMonster());
             game.removeMonster();
         }

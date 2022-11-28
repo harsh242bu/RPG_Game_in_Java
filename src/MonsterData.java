@@ -35,7 +35,7 @@ public class MonsterData {
 
 //    Name/level/damage/defense/dodge chance
     public static void getMonsterHeader(){
-        System.out.println("Tag\tName\t\t\tLevel\tDamage\tDefense\tDodge chance");
+        System.out.println("Tag\tName\t\t\tLevel\tDamage\tDefense\tDodge chance\tHP");
     };
 
 //    public static Monster getMonster(int index) {

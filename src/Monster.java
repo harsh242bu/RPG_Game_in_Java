@@ -10,7 +10,7 @@ public class Monster extends Character implements Modifiable{
 
     Monster(String name, int level, int damage, int defense, int dodge){
         // defense is hp
-        super("M", name, level, 0);
+        super("M", name, level, 0, level*100);
         this.defense = defense;
         this.baseDamage = damage;
         this.dodge = dodge;
@@ -81,6 +81,10 @@ public class Monster extends Character implements Modifiable{
                 return this.getLevel().getXp();
             case(LEVEL):
                 return this.getIntLevel();
+            case(DAMAGE):
+                return this.getBaseDamage();
+            case(HP):
+                return this.getHp();
             default:
                 return 0;
         }
@@ -114,6 +118,7 @@ public class Monster extends Character implements Modifiable{
         // calculate dodge chance here
         int num = Utility.getIntForDouble(getDodge());
         if(!Utility.checkProbability(num)){
+            // change the attack according to defense
             super.dealAttack(attack);
         }
         else{
