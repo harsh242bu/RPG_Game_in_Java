@@ -6,5 +6,6 @@ public class RecallHeroAction implements HeroActionState {
         // Recall hero here
         Controller controller = new Controller();
         controller.recall(hero, game.getGameBoard());
+        game.getHero().resetHero();
     }
 }

@@ -364,13 +364,10 @@ public class Hero extends Character implements Modifiable, Cloneable {
     public void resetHero() {
         Hero temp = this.getNewHero();
 //        int mana, int strength, int agility, int dexterity, int money, int xp
-        this.setLevel(temp.getLevel());
-        this.setMana(temp.getMana());
-        this.setStrength(temp.getStrength());
-        this.setAgility(temp.getAgility());
-        this.setDexterity(temp.getDexterity());
-        this.setGold(temp.getGold());
-        this.setHp(1 * INITIAL_HP);
+
+        this.setMana((int) (temp.getMana() * Math.pow(1.1, temp.getIntLevel())));
+
+        this.setHp(getIntLevel() * INITIAL_HP);
     }
 
     public void switchWeapon() {
