@@ -34,7 +34,7 @@ public class MonstersTurn implements TurnState{
             game.removeMonster();
         }
 
-        if(monsterIndex == game.getMonsters().size() - 1){
+        if(monsterIndex >= game.getMonsters().size() - 1){
             game.setMonsterTurnIndex(0);
             game.setNextTurn(new HeroesTurn());
         }
