@@ -93,6 +93,23 @@ public class Board {
             for (int j = 0; j < board.length; j++) {
                 result += board[i][j].print();
             }
+            switch (i) {
+                case 0:
+                    result += ("      " + TileStatic.getBlueNexusString("  ") + "Blue is nexus. Can buy items and refill mana and HP.");
+                    break;
+                case 2:
+                    result += ("      " + TileStatic.getGrayCaveString("  ") + "Gray is cave. Can increase the agility for hero.");
+                    break;
+
+                case 4:
+                    result += ("      " + TileStatic.getRedKoulouString("  ") + "Red is koulou. Can increase the strength for hero.");
+                    break;
+                case 6:
+                    result += ("      " + TileStatic.getGreenBushString("  ") + "Green is bush. Can increase the dexterity for hero.");
+                    break;
+
+
+            }
             result += "\n";
         }
         return result;
@@ -115,21 +132,37 @@ public class Board {
         String result = "";
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
-                String tag="";
+                String tag = "";
 
                 Position position = new Position(i, j);
-                if(heroPositions.contains(position) && monsterPosition.contains(position)){
-                    tag+=CharacterLocation.getHero(position ).getTag();
-                    tag+=CharacterLocation.getMonster(position).getTag();
+                if (heroPositions.contains(position) && monsterPosition.contains(position)) {
+                    tag += CharacterLocation.getHero(position).getTag();
+                    tag += CharacterLocation.getMonster(position).getTag();
                 } else if (heroPositions.contains(position)) {
-                    tag+=CharacterLocation.getHero(position ).getTag()+"  ";
+                    tag += CharacterLocation.getHero(position).getTag() + "  ";
                 } else if (monsterPosition.contains(position)) {
-                    tag+="  "+CharacterLocation.getMonster(position).getTag();
-                }
-                else {
-                    tag+="    ";
+                    tag += "  " + CharacterLocation.getMonster(position).getTag();
+                } else {
+                    tag += "    ";
                 }
                 result += board[i][j].print(tag);
+            }
+            switch (i) {
+                case 0:
+                    result += ("      " + TileStatic.getBlueNexusString("  ") + "Blue is nexus. Can buy items and refill mana and HP.");
+                    break;
+                case 2:
+                    result += ("      " + TileStatic.getGrayCaveString("  ") + "Gray is cave. Can increase the agility for hero.");
+                    break;
+
+                case 4:
+                    result += ("      " + TileStatic.getRedKoulouString("  ") + "Red is koulou. Can increase the strength for hero.");
+                    break;
+                case 6:
+                    result += ("      " + TileStatic.getGreenBushString("  ") + "Green is bush. Can increase the dexterity for hero.");
+                    break;
+
+
             }
             result += "\n";
         }
