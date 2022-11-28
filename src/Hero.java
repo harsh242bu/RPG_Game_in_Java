@@ -7,12 +7,12 @@ public class Hero extends Character implements Modifiable, Cloneable {
     // Inject user playing or computer playing behaviour as a strategy pattern
     // Attacking behaviour as strategy pattern ?
 
-    private final int INITIAL_HP = 100;
+//    private final int INITIAL_HP = 100;
     private int mana;
     private int strength;
     private int agility;
     private int dexterity;
-    private int hp;
+//    private int hp;
     private LevelUpBehaviour levelBehaviour;
 
     private Gold gold;
@@ -22,8 +22,8 @@ public class Hero extends Character implements Modifiable, Cloneable {
 
     // mana/strength/agility/dexterity/starting money/starting experience
     public Hero(String name, int mana, int strength, int agility, int dexterity, int money, int xp) {
-        super("H", name, 1, xp);
-        this.hp = 1 * INITIAL_HP;
+        super("H", name, 1, xp, 1 * 100);
+//        this.hp = 1 * INITIAL_HP;
         this.mana = mana;
         this.strength = strength;
         this.agility = agility;
@@ -51,13 +51,13 @@ public class Hero extends Character implements Modifiable, Cloneable {
         this.armor = armor;
     }
 
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
+//    public int getHp() {
+//        return hp;
+//    }
+//
+//    public void setHp(int hp) {
+//        this.hp = hp;
+//    }
 
     public Weapon getWeapon() {
         return weapon;
@@ -169,6 +169,14 @@ public class Hero extends Character implements Modifiable, Cloneable {
 
     public boolean hasArmors() {
         return backPack.hasArmors();
+    }
+
+    public boolean increaseXp(int xp) {
+        if(super.increaseXp(xp)){
+            this.levelBehaviour.levelUp(this);
+            return true;
+        }
+        return false;
     }
 
     public int getAttribute(int type) {
@@ -293,7 +301,9 @@ public class Hero extends Character implements Modifiable, Cloneable {
     public void modify(int type, int value) {
         switch (type) {
             case (HP):
-                this.hp += value;
+                setHp(getHp() + value);
+//                this.hp += value;
+                break;
             case (MANA):
                 this.mana += value;
                 break;
@@ -364,13 +374,13 @@ public class Hero extends Character implements Modifiable, Cloneable {
     public void resetHero() {
         Hero temp = this.getNewHero();
 //        int mana, int strength, int agility, int dexterity, int money, int xp
-        this.setLevel(temp.getLevel());
-        this.setMana(temp.getMana());
-        this.setStrength(temp.getStrength());
-        this.setAgility(temp.getAgility());
-        this.setDexterity(temp.getDexterity());
-        this.setGold(temp.getGold());
-        this.setHp(1 * INITIAL_HP);
+//        this.setLevel(temp.getLevel());
+        this.setMana((int) (temp.getMana() * Math.pow(1.1,temp.getIntLevel() - 1)));
+//        this.setStrength(temp.getStrength());
+//        this.setAgility(temp.getAgility());
+//        this.setDexterity(temp.getDexterity());
+//        this.setGold(temp.getGold());
+        this.setHp(getIntLevel() * 100);
     }
 
     public void switchWeapon() {

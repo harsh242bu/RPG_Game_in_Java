@@ -3,13 +3,13 @@ public abstract class Character implements Modifiable, Cloneable {
     private String name;
     private CharacterLevel level;
     private String tag;
-//    private int hp;
+    private int hp;
 
-    public Character(String tag, String name, int level, int xp) {
+    public Character(String tag, String name, int level, int xp, int hp) {
         this.tag = tag;
         this.name = name;
         this.level = new CharacterLevel(level, xp);
-//        this.hp = hp;
+        this.hp = hp;
     }
 
     public String getName() {
@@ -42,6 +42,14 @@ public abstract class Character implements Modifiable, Cloneable {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     @Override

@@ -21,7 +21,7 @@ public class MonsterFactory {
         List<Character> newList = new ArrayList<Character>();
 
         for(Character character: MonsterData.monsters.getLegion()){
-            if(character.getIntLevel() <= maxHeroLevel) {
+            if(character.getIntLevel() == maxHeroLevel) {
                 newList.add(character);
             }
         }
