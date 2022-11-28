@@ -162,6 +162,7 @@ public class ValorRPG implements Game{
                 monster.printCharacter();
                 getMonsters().addCharacter(monster);
             }
+            Utility.newLine();
 
         } catch (Exception e){
             System.out.println(e);
