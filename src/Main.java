@@ -5,6 +5,7 @@ public class Main {
         ValorRPG valorGame = new ValorRPG();
 
         valorGame.setupGame();
+        
         valorGame.startGame();
     }
 }

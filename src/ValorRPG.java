@@ -1,12 +1,12 @@
 import java.util.List;
 
-public class ValorRPG implements Game{
-//    private PartyPiece party;
+public class ValorRPG implements Game {
+    //    private PartyPiece party;
     private Party heroes;
     private Party monsters;
     private Board gameBoard;
     private Controller gameController;
-//    private final Location startLoc = new Location(0,0);
+    //    private final Location startLoc = new Location(0,0);
     private final int TOTAL_PLAYERS = 3;
     private final int monsterRandomMoveChance = 18;
     private TurnState turnState;
@@ -17,7 +17,7 @@ public class ValorRPG implements Game{
     private int monsterTurnIndex = 0;
     private Rounds gameRounds;
 
-    ValorRPG(){
+    ValorRPG() {
 //        super(rows, cols);
         GameSetup.loadData();
         this.gameBoard = new Board();
@@ -130,6 +130,7 @@ public class ValorRPG implements Game{
 
     @Override
     public void setupGame() {
+        GameInstruction.printGameInstruction();
         GameSetup.viewHeroMenu();
         this.setHeroes(GameSetup.inputHeroes());
         GameSetup.displayHeroes(getHeroes());
@@ -139,11 +140,11 @@ public class ValorRPG implements Game{
         try {
             List<Monster> monsters = this.gameController.respawnMonster(this.getMaxHeroLevel());
 
-            for(Monster monster: monsters){
+            for (Monster monster : monsters) {
                 getMonsters().addCharacter(monster);
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
@@ -153,46 +154,46 @@ public class ValorRPG implements Game{
         this.setNextTurn(new HeroesTurn());
     }
 
-    public void generateNewMonster(){
+    public void generateNewMonster() {
         try {
             List<Monster> newMonsters = this.gameController.respawnMonster(this.getMaxHeroLevel());
             Utility.printStrLn("Caution!! New monsters spawned in the Game.");
             MonsterData.getMonsterHeader();
-            for(Monster monster: newMonsters){
+            for (Monster monster : newMonsters) {
                 monster.printCharacter();
                 getMonsters().addCharacter(monster);
             }
             Utility.newLine();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public void setNextTurn(TurnState state){
+    public void setNextTurn(TurnState state) {
         this.setTurnState(state);
         this.turnState.handleNextTurn(this);
     }
 
-    public void setHeroNextAction(HeroActionState state){
+    public void setHeroNextAction(HeroActionState state) {
         this.setHeroActionState(state);
         this.heroActionState.handleAction(this);
     }
 
-    public void setMonsterNextAction(MonsterActionState state){
+    public void setMonsterNextAction(MonsterActionState state) {
         this.setMonsterActionState(state);
         this.monsterActionState.handleAction(this);
     }
 
-    public boolean isHeroAlive(){
+    public boolean isHeroAlive() {
         return this.getHero().isAlive();
     }
 
-    public boolean isMonsterAlive(){
+    public boolean isMonsterAlive() {
         return this.getMonster().isAlive();
     }
 
-    public boolean anyHeroReachedNexus(){
+    public boolean anyHeroReachedNexus() {
 //        boolean alive = false;
 //        for(Character ch: getHeroes().getLegion()){
 //            if(ch.isAlive()){
@@ -203,7 +204,7 @@ public class ValorRPG implements Game{
         return false;
     }
 
-    public boolean anyMonsterReachedNexus(){
+    public boolean anyMonsterReachedNexus() {
 //        boolean alive = false;
 //        for(Character ch: getMonsters().getLegion()){
 //            if(ch.isAlive()){
@@ -214,26 +215,26 @@ public class ValorRPG implements Game{
         return false;
     }
 
-    public void removeHero(){
+    public void removeHero() {
         this.getHeroes().remove(getHeroTurnIndex());
     }
 
-    public void removeMonster(){
+    public void removeMonster() {
         this.getMonsters().remove(getMonsterTurnIndex());
     }
 
-    public Hero getHero(){
-        return (Hero)this.getHeroes().get(getHeroTurnIndex());
+    public Hero getHero() {
+        return (Hero) this.getHeroes().get(getHeroTurnIndex());
     }
 
-    public Monster getMonster(){
-        return (Monster)this.getMonsters().get(getMonsterTurnIndex());
+    public Monster getMonster() {
+        return (Monster) this.getMonsters().get(getMonsterTurnIndex());
     }
 
-    public int getMaxHeroLevel(){
+    public int getMaxHeroLevel() {
         int maxLevel = 0;
-        for(Character character: this.getHeroes().getLegion()){
-            if(character.getIntLevel() > maxLevel){
+        for (Character character : this.getHeroes().getLegion()) {
+            if (character.getIntLevel() > maxLevel) {
                 maxLevel = character.getIntLevel();
             }
         }
