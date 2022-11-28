@@ -1,3 +1,4 @@
+// Concrete implementation of battle state interface. Handles monster attack
 public class MonsterAttack implements BattleState{
     @Override
     public void handleAttack(Battle battle) {

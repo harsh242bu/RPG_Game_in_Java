@@ -1,3 +1,5 @@
+// Responsible for populating all the possible actions hero can take and passing the
+//        state to appropriate state on choosing an action
 public class ChooseHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {

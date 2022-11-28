@@ -1,3 +1,4 @@
+// Recalls hero to the base nexus. One of the possible hero action
 public class RecallHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {

@@ -1,3 +1,4 @@
+// Responsible for hero's movement in the map
 public class MoveHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {

@@ -1,4 +1,4 @@
-
+// Contains the main board where game is played, (made up of tiles)
 
 import java.util.ArrayList;
 import java.util.Random;

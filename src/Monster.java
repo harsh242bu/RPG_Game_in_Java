@@ -2,8 +2,7 @@
 public class Monster extends Character implements Modifiable {
     //    name, level, hp, base_damage, defense, dodge
 
-    private int baseDamage; // can be injected using strategy pattern instead bcoz this can also be
-    // applied to other game elements like car in a game
+    private int baseDamage;
 
     private int defense; // like an armor
     private int dodge;

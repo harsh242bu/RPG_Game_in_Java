@@ -1,3 +1,4 @@
+// A type of CommonTile - increases hero's strength
 public class KoulouTile extends CommonTile {
     private double increasedValue=0;
     @Override

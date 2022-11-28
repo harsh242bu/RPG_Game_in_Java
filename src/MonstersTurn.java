@@ -1,3 +1,4 @@
+// Concrete implementation of turnState interface. Handles monsters turn in the game
 public class MonstersTurn implements TurnState{
 
     @Override

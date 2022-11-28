@@ -1,3 +1,4 @@
+// Hero can consume a potion. One of the possible hero action
 public class PotionHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {

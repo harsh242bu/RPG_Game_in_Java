@@ -1,3 +1,4 @@
+// Responsible for monster's movement in the map
 public class MoveMonsterAction implements MonsterActionState{
     @Override
     public void handleAction(ValorRPG game) {

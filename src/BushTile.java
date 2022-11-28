@@ -1,3 +1,4 @@
+// A type of CommonTile - increases hero's dexterity
 public class BushTile extends CommonTile {
     private double increasedValue=0;
     @Override

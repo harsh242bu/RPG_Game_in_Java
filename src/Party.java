@@ -1,4 +1,4 @@
-// Represents a party of heroes
+// Represents a party of characters - (monsters or heroes)
 import java.util.ArrayList;
 import java.util.List;
 

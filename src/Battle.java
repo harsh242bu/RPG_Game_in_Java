@@ -1,3 +1,4 @@
+// Battle object is used to create a battle between Hero and Monster. Abstraction of battle fought between Hero and Monster
 public class Battle {
     private Monster monster;
     private Hero hero;

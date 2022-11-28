@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * generate hero based on name
+ * Initialize hero data
  */
 public class HeroFactory {
 

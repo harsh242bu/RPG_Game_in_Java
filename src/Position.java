@@ -1,3 +1,4 @@
+// Abstraction of character location on the board. Contains x,y coordinates
 public class Position {
     private int x;
     private int y;

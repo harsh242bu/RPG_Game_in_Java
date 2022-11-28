@@ -1,3 +1,4 @@
+// Concrete implementation of turnState interface. Handles heroes turn in the game
 public class HeroesTurn implements TurnState{
 
     @Override

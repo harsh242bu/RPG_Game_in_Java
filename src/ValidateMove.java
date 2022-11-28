@@ -1,3 +1,4 @@
+// Checks for the validity of the move
 import java.util.Set;
 
 /**

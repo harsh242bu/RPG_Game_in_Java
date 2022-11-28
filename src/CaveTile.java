@@ -1,3 +1,4 @@
+// A type of CommonTile - increases hero's agility
 public class CaveTile extends CommonTile {
     private double increasedValue=0;
     @Override

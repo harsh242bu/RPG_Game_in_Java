@@ -56,10 +56,10 @@ ActionState.java - State machine interface to maintain Hero action and Monster a
         ChooseHeroAction.java - Responsible for populating all the possible actions hero can take and passing the
                                 state to appropriate state on choosing an action
         ChangeItemHeroAction.java - Change Armor or weapon
-        MoveHeroAction.java - Responsible for moving in the map
+        MoveHeroAction.java - Responsible for hero's movement in the map
         PotionHeroAction.java - Hero can consume a potion
         RecallHeroAction.java - Action to Recall to the nexus
-        TeleportHeroAction.java - Teleport action
+        TeleportHeroAction.java - Teleports hero to another lane. One of the possible hero action
 
     MonsterActionState.java - This state machine is responsible for monster's actions. Monster can perform only
                                 two actions - Move in tha map and Attack a nearby hero
@@ -256,9 +256,8 @@ ValidateMove.java - Validate the movement for the character
 
 ## Classes carried over from previous assignments
 ---------------------------------------------------------------------------
-Piece.java
-Cell.java
-GameBoard.java
+Many classes are carried over from previous assignment. Some are carried over as it is and some are modified a bit
+to cater to the needs of new assignment.
 
 
 ## Notes

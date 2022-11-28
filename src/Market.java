@@ -1,4 +1,4 @@
-// Market class. Contains items we can buy from the market, heroes, etc
+// Market class. Contains items we can buy from the market. Implemented using singleton design pattern
 public class Market {
     private static Market marketInstance;
     private MarketInventory marketItems;

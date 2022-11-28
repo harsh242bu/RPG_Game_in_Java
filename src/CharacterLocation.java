@@ -1,3 +1,4 @@
+// This class is responsible for linking the player and the board
 import java.util.*;
 
 public class CharacterLocation {

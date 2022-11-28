@@ -1,3 +1,4 @@
+// The main game class. Contains the board, heroes, monsters and everything required to play the game
 import java.util.List;
 
 public class ValorRPG implements Game {

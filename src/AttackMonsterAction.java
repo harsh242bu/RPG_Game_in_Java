@@ -1,3 +1,4 @@
+// Responsible for creating a battle and attacking a nearby hero
 public class AttackMonsterAction implements MonsterActionState{
     @Override
     public void handleAction(ValorRPG game) {

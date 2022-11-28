@@ -1,3 +1,4 @@
+// Tracking number of rounds in the game. Required for respawning new monsters after 7 rounds.
 public class Rounds {
     private static Rounds roundInstance;
     private int round = 1;

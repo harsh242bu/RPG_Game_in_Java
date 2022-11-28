@@ -1,4 +1,4 @@
-// Class is used to setup the game
+// Class is used to set-up the game
 import java.util.List;
 
 public class GameSetup {

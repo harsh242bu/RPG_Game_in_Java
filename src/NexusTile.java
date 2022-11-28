@@ -1,3 +1,4 @@
+// Extended from MarketTile, which is extended from CommonTile
 public class NexusTile extends MarketTile {
 
 

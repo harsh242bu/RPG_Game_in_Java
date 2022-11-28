@@ -1,3 +1,4 @@
+// Teleports hero to another lane. One of the possible hero action
 public class TeleportHeroAction implements HeroActionState {
 
     @Override

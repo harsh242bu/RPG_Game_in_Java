@@ -1,3 +1,4 @@
+// Responsible for printing game instructions before start of the game
 import java.util.concurrent.TimeUnit;
 
 public class GameInstruction {

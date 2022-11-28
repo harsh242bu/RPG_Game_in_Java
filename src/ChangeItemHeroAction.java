@@ -1,3 +1,4 @@
+// Hero action to change a weapon or armor in the game
 public class ChangeItemHeroAction implements HeroActionState {
     @Override
     public void handleAction(ValorRPG game) {

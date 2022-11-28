@@ -1,4 +1,4 @@
-// Represents 8x8 board of our game
+// Represents game interface. All games must implement game interface
 public interface Game {
     public void setupGame();
 

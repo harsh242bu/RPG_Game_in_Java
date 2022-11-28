@@ -1,5 +1,5 @@
 /**
- * market tile on the board
+ * market tile on the board. A type of CommonTile
  */
 public class MarketTile extends CommonTile {
     private Market market;

@@ -1,3 +1,4 @@
+// Contains the utils for printing the tile with different colors
 public class TileStatic {
 
     /**

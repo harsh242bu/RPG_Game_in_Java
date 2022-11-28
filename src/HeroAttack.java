@@ -1,3 +1,4 @@
+// Concrete implementation of battle state interface. Handles hero attack
 public class HeroAttack implements BattleState{
 
     @Override
