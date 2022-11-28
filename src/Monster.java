@@ -46,30 +46,14 @@ public class Monster extends Character implements Modifiable {
 
     @Override
     public boolean isAlive() {
-        return (getDefense() > 0);
+        return (getHp() > 0);
     }
 
     @Override
     public void printCharacter() {
-//        Name level damage defense dodge chance
-//        System.out.print(getTag() + "\t");
-//        System.out.print(getName() + "\t");
-//        if(getName().length() < 8){
-//            System.out.print("\t\t");
-//        }
-//        else if(getName().length() < 12){
-//            System.out.print("\t");
-//        }
-//        for(int attr: MONSTER_ATTRIBUTES){
-//            System.out.print(Utility.getString(getAttribute(attr)));
-//            if(getAttribute(attr) > 999)
-//                System.out.print("\t");
-//            else System.out.print("\t\t");
-//
-//        }
-//
-//        Utility.newLine();
-        String output = String.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s", getTag(), getName(), getHp(), getBaseDamage(), getDefense(), getDodge(), getIntLevel());
+
+        String output = String.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s", getTag(), getName(), getHp(),
+                getBaseDamage(), getDefense(), getDodge(), getIntLevel());
         System.out.println(output);
     }
 
@@ -112,6 +96,9 @@ public class Monster extends Character implements Modifiable {
             case (AGILITY):
                 this.dodge += value;
                 break;
+            case (HP):
+                setHp(getHp() + value);
+                break;
         }
     }
 
@@ -121,9 +108,10 @@ public class Monster extends Character implements Modifiable {
         int num = Utility.getIntForDouble(getDodge());
         if (!Utility.checkProbability(num)) {
             // change the attack according to defense
+            modify(attack.getAttribute(), attack.getValue());
             super.dealAttack(attack);
         } else {
-            System.out.println(getName() + " dodged the attack");
+            System.out.println(getTag() + " monster (" + getName() + ") dodged the attack");
         }
     }
 

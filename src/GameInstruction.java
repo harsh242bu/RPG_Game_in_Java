@@ -5,7 +5,7 @@ public class GameInstruction {
         System.out.println("Legends of Valor is played in an 8x8 grid of spaces. The grid is divided in three lanes, each \n" +
                 "separated by a column of impassible spaces. Each lane has a width of two spaces. Each space\n" +
                 "can hold up to one monster and up to one hero. A space cannot hold two monsters or two \n" +
-                "heroes.\n" +
+                "heroes.\n\n" +
                 "The first two columns are the first (top) lane. The third column is a wall between the first and \n" +
                 "the second lane. The fourth and the fifth columns are the second (middle) lane. The sixth \n" +
                 "column is another wall. The seventh and eighth columns are the third (bottom) lane. The first \n" +
@@ -15,19 +15,19 @@ public class GameInstruction {
         System.out.println(new Board().printBoard());
         System.out.println();
         try {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             System.out.println(e);
         }
         System.out.println("There are some features for the game:");
-        System.out.println("1. Monster are randomly moving forward or to the side with probability.");
-        System.out.println("2. Tile have different functionality and can enhance the hero.");
+        System.out.println("1. Monster will randomly move forward or to the side with some probability.");
+        System.out.println("2. Tile have different functionality and can enhance different hero attributes.");
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             System.out.println(e);
         }
-        System.out.println("The game is stared in 3 seconds, enjoy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("The game will start in 3 seconds, enjoy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {

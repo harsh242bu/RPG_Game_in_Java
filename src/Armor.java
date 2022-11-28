@@ -17,7 +17,6 @@ public class Armor extends Item {
 
     public void getHeader() {
         String output = String.format("%-5s %-17s %-10s %-18s %-10s", "No.", "Name", "Cost", "Required Level", "Damage");
-//        System.out.println("Name\t\tCost\tRequired level\tDamage");
         System.out.println(output);
     }
 
@@ -33,16 +32,11 @@ public class Armor extends Item {
 
         return armor;
     }
-//    @Override
-//    public Armor clone() throws CloneNotSupportedException {
-//        return (Armor) super.clone();
-//    }
 
     @Override
     public void printItem() {
         String output = String.format("  %-17s %-10s %-18s %-10s", getName(), getCost(), getReqLevel(), getDamageReduction());
 
         System.out.println(output);
-//        System.out.println(getName() + "\t\t" + getCost() + "\t" + getReqLevel() + "\t" + getDamageReduction());
     }
 }

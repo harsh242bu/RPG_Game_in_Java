@@ -321,7 +321,7 @@ public class Hero extends Character implements Modifiable, Cloneable {
             switch (action) {
                 case (HeroAttackOptions.WEAPON): {
                     int weaponDamage = Utility.getIntForDouble((this.strength + weapon.getDamage()) * 0.15);
-                    heroAttack = new Attack(Modifiable.DEFENSE, weaponDamage);
+                    heroAttack = new Attack(Modifiable.HP, weaponDamage);
                     System.out.println(getName() + " attacked using " + getWeapon().getName() +
                             " for " + weaponDamage + " damage !");
                     return heroAttack;
