@@ -3,14 +3,18 @@
 Design selection approach: Merged the design of both team members. Hybrid Approach
 
 Reason for merging design:
-After careful evaluation of both designs. We identified that some aspects of game implementation are done better implemented in member 1 design and others are better
-implemented in member 2 design. So we decided to merge both designs. For ex: Game data and game setup was well organized and
-easy to follow in Harsh's design. Yan has a board implementation along with movement logic which was loosely coupled.
+After careful evaluation of both designs. We identified that some aspects of game implementation are better implemented
+in member 1 design and others are better implemented in member 2 design. So we decided to merge both designs. For ex:
+Game data and game setup was well organized and easy to follow in Harsh's design. Yan has a board implementation
+along with movement logic which was loosely coupled.
 
-Flaw in Harsh's old design:
+Analysis of Harsh's old design:
     A flaw in my old game design was the distribution of responsibility with respect to market and various cells
     in the game. Cell architecture and market architecture was kind of overlapping each other in terms of responsibility.
     So we adopted the cell/tile architecture from Yan's design. And resolved the responsibility issue in the new game
+
+Analysis of Yan's old design:
+
 
 Harsh design pieces:
     Game setup
