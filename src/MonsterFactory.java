@@ -3,10 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MonsterFactory {
+    private static MonsterFactory monsterFactoryInstance;
     private int monsterCount;
-    MonsterFactory(){
+    private MonsterFactory(){
         this.monsterCount = 1;
         MonsterData.getMonsterDataInstance();
+    }
+
+    public static MonsterFactory getMonsterFactoryInstance(){
+        if(monsterFactoryInstance == null){
+            monsterFactoryInstance = new MonsterFactory();
+        }
+        return monsterFactoryInstance;
     }
 
     public int getMonsterCount() {

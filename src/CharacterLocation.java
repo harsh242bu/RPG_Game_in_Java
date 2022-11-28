@@ -17,20 +17,20 @@ public class CharacterLocation {
     /**
      * respawn monster give three mosnters and give them a location
      */
-    public static void respawnMonsters(List<Monster> list) {
-//        Monster monster = list.get(0);
-//        addCharacter(monster,new Position(0,1));
-//        monster = list.get(1);
-//        addCharacter(monster,new Position(0,4));
-//        monster = list.get(2);
-//        addCharacter(monster,new Position(0,7));
-
+    public static void respawnMonsters(List<Monster> list){
         Monster monster = list.get(0);
-        addCharacter(monster, new Position(2, 1));
+        addCharacter(monster,new Position(0,1));
         monster = list.get(1);
-        addCharacter(monster, new Position(5, 4));
+        addCharacter(monster,new Position(0,4));
         monster = list.get(2);
-        addCharacter(monster, new Position(5, 7));
+        addCharacter(monster,new Position(0,7));
+
+//        Monster monster = list.get(0);
+//        addCharacter(monster,new Position(2,1));
+//        monster = list.get(1);
+//        addCharacter(monster,new Position(2,4));
+//        monster = list.get(2);
+//        addCharacter(monster,new Position(5,7));
     }
 
     /**
@@ -64,21 +64,19 @@ public class CharacterLocation {
 
     /**
      * return set of location of monster
-     *
      * @return
      */
-    public static Set<Position> getmonsterLocation() {
+    public static Set<Position> getmonsterLocation(){
         return locationMonster.keySet();
     }
 
     /**
      * record the nexus postion inforamtion for the hero
-     *
      * @param c
      * @param position
      */
-    private static void setBase(Character c, Position position) {
-        characterNexus.put(c, position);
+    private static void setBase(Character c, Position position){
+        characterNexus.put(c,position);
     }
 
     public static void addCharacter(Character character, Position position) {
@@ -90,19 +88,19 @@ public class CharacterLocation {
         } else if (character instanceof Hero) {
 
             addHeroLocation(position, (Hero) character);
-            setBase(character, new Position(position));
+            setBase(character,new Position(position));
         }
 
     }
 
-    public static Position getNexus(Character character) {
+    public static Position getNexus(Character character){
         return characterNexus.get(character);
     }
 
-    public static boolean inBase(Character character) {
+    public static boolean inBase(Character character){
         Position location = getLocation(character);
-        for (Character i : characterNexus.keySet()) {
-            if (location.equals(characterNexus.get(i))) {
+        for(Character i: characterNexus.keySet()){
+            if(location.equals(characterNexus.get(i))){
                 return true;
             }
         }
@@ -113,11 +111,11 @@ public class CharacterLocation {
      * return the surround hero for monster
      * if there is no hero return null
      */
-    public static Hero getSurroundingHero(Monster monster) {
+    public static Hero getSurroundingHero(Monster monster){
         Position location = getLocation(monster);
         Set<Position> surroundingLocation = getSurroundingLocation(location);
-        for (Position i : surroundingLocation) {
-            if (locationHero.containsKey(i)) {
+        for(Position i: surroundingLocation){
+            if(locationHero.containsKey(i)){
                 return locationHero.get(i);
             }
         }
@@ -128,39 +126,42 @@ public class CharacterLocation {
      * return the surround monster for hero
      * if there is no monster in attack range return null.
      */
-    public static Monster getSurroundingMonster(Hero hero) {
+    public static Monster getSurroundingMonster(Hero hero){
         Position location = getLocation(hero);
         Set<Position> surroundingLocation = getSurroundingLocation(location);
-        for (Position i : surroundingLocation) {
-            if (locationMonster.containsKey(i)) {
+        for(Position i: surroundingLocation){
+            if(locationMonster.containsKey(i)){
                 return locationMonster.get(i);
             }
         }
         return null;
     }
 
-    private static Set<Position> getSurroundingLocation(Position position) {
+    private static Set<Position> getSurroundingLocation(Position position){
         HashSet<Position> positions = new HashSet<>();
-        positions.add(new Position(position.getX() - 1, position.getY() - 1));
-        positions.add(new Position(position.getX() - 1, position.getY()));
-        positions.add(new Position(position.getX() - 1, position.getY() + 1));
-        positions.add(new Position(position.getX(), position.getY() - 1));
-        positions.add(new Position(position.getX(), position.getY()));
-        positions.add(new Position(position.getX(), position.getY() + 1));
-        positions.add(new Position(position.getX() + 1, position.getY() - 1));
-        positions.add(new Position(position.getX() + 1, position.getY()));
-        positions.add(new Position(position.getX() + 1, position.getY() + 1));
+        positions.add(new Position(position.getX()-1,position.getY()-1));
+        positions.add(new Position(position.getX()-1,position.getY()));
+        positions.add(new Position(position.getX()-1,position.getY()+1));
+        positions.add(new Position(position.getX(),position.getY()-1));
+        positions.add(new Position(position.getX(),position.getY()));
+        positions.add(new Position(position.getX(),position.getY()+1));
+        positions.add(new Position(position.getX()+1,position.getY()-1));
+        positions.add(new Position(position.getX()+1,position.getY()));
+        positions.add(new Position(position.getX()+1,position.getY()+1));
         return positions;
     }
 
 
+
+
+
+
     /**
      * c is the character and position is the destination position
-     *
      * @param c
      * @param position
      */
-    public static void changeLocation(Character c, Position position, Board board) {
+    public static void changeLocation(Character c, Position position, Board board){
         Position location = getLocation(c);
         Tile tile = board.getTile(location.getX(), location.getY());
         ((CommonTile) tile).deactivate((Hero) c);
@@ -194,6 +195,7 @@ public class CharacterLocation {
     }
 
 
+
     public static void addMonsterLocation(Position position, Monster monster) {
         locationMonster.put(position, monster);
     }
@@ -202,7 +204,7 @@ public class CharacterLocation {
         locationHero.put(position, hero);
     }
 
-    public static void removeMonster(Monster monster) {
+    public static void removeMonster(Monster monster){
         Position location = getLocation(monster);
 //        System.out.println("this is old");
 //        System.out.println(characterLocation);
@@ -294,7 +296,6 @@ public class CharacterLocation {
 
     /**
      * get a location for a character
-     *
      * @param character
      * @return
      */
@@ -308,6 +309,8 @@ public class CharacterLocation {
         System.out.println(surroundingLocation);
 
     }
+
+
 
 
 }

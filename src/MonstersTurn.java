@@ -34,8 +34,15 @@ public class MonstersTurn implements TurnState{
             game.removeMonster();
         }
 
-        if(monsterIndex == game.getMonsters().size() - 1){
+        if(monsterIndex >= game.getMonsters().size() - 1){
             game.setMonsterTurnIndex(0);
+            if(game.getGameRounds().checkRegenrateMonsters()){
+                game.generateNewMonster();
+            }
+            Utility.printStrLn("" + game.getGameRounds().getRound() + " game rounds complete ");
+            Utility.newLine();
+
+            game.getGameRounds().incrementRound();
             game.setNextTurn(new HeroesTurn());
         }
         else{

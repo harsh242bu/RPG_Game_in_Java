@@ -29,7 +29,7 @@ public class Controller {
      */
     public List<Monster> respawnMonster(int level) throws CloneNotSupportedException {
 //    public void respawnMonster(int level) throws CloneNotSupportedException {
-        MonsterFactory monsterFactory = new MonsterFactory();
+        MonsterFactory monsterFactory = MonsterFactory.getMonsterFactoryInstance();
         ArrayList<Monster> list = new ArrayList<>();
         for(int i=0;i<3;i++){
             list.add(monsterFactory.getMonster(level));

@@ -15,6 +15,7 @@ public class ValorRPG implements Game{
     private MonsterFactory monsterFactory;
     private int heroTurnIndex = 0;
     private int monsterTurnIndex = 0;
+    private Rounds gameRounds;
 
     ValorRPG(){
 //        super(rows, cols);
@@ -27,8 +28,9 @@ public class ValorRPG implements Game{
 
         this.turnState = new HeroesTurn();
         this.heroActionState = new ChooseHeroAction();
-        this.monsterFactory = new MonsterFactory();
+        this.monsterFactory = MonsterFactory.getMonsterFactoryInstance();
         this.monsterActionState = new MoveMonsterAction();
+        this.gameRounds = Rounds.getRoundsInstance();
     }
 //    ValorRPG(int size){
 //        this(size, size);
@@ -118,6 +120,14 @@ public class ValorRPG implements Game{
         this.monsterTurnIndex = monsterTurnIndex;
     }
 
+    public Rounds getGameRounds() {
+        return gameRounds;
+    }
+
+    public void setGameRounds(Rounds gameRounds) {
+        this.gameRounds = gameRounds;
+    }
+
     @Override
     public void setupGame() {
         GameSetup.viewHeroMenu();
@@ -141,6 +151,21 @@ public class ValorRPG implements Game{
 
     public void startGame() {
         this.setNextTurn(new HeroesTurn());
+    }
+
+    public void generateNewMonster(){
+        try {
+            List<Monster> newMonsters = this.gameController.respawnMonster(this.getMaxHeroLevel());
+            Utility.printStrLn("Caution!! New monsters spawned in the Game.");
+            MonsterData.getMonsterHeader();
+            for(Monster monster: newMonsters){
+                monster.printCharacter();
+                getMonsters().addCharacter(monster);
+            }
+
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     public void setNextTurn(TurnState state){
