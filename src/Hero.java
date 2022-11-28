@@ -249,8 +249,8 @@ public class Hero extends Character implements Modifiable, Cloneable {
         for (int i = 0; i < choiceList.size(); i++) {
             System.out.println((i + 1) + ": " + getActionString(choiceList.get(i)));
         }
-        int choice = Utility.intInputFromList(choiceList);
-
+        int choice = Utility.intInput(1, choiceList.size()+1);
+//                Utility.intInputFromList(choiceList);
 
         return choiceList.get(choice - 1);
     }
@@ -285,8 +285,6 @@ public class Hero extends Character implements Modifiable, Cloneable {
 //        Name HP	Mana	Strength	Agility	Dexterity	Starting money	Starting experience
         String output = String.format("%-10s%-17s%-10d%-10d%-10d%-10d%-10d%-10d%-10s", getTag(), getName(), getHp(), getMana(), getStrength(), getAgility(), getDexterity(), getMoney(), getStringLevel());
         System.out.println(output);
-
-
     }
 
     @Override
@@ -487,7 +485,7 @@ public class Hero extends Character implements Modifiable, Cloneable {
     public void printHeroStats(){
         HeroData.getHeader();
         this.printCharacter();
-        Utility.newLine();
+//        Utility.newLine();
     }
 
     public void printHeroDetails() {
@@ -509,6 +507,8 @@ public class Hero extends Character implements Modifiable, Cloneable {
         }
 
         Utility.newLine();
+
+        this.backPack.printAllItems();
     }
 
     @Override

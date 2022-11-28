@@ -175,7 +175,7 @@ public class Utility {
 
     public static String yesNoInput(){
         String str = inputChar();
-        while(str != "y" && str != "n"){
+        while(!str.equals("y") && !str.equals("n")){
             System.out.println("Wrong Input!! Enter again: ");
             str = inputChar();
         }

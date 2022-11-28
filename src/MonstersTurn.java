@@ -29,6 +29,7 @@ public class MonstersTurn implements TurnState{
                 };
                 hero.getGold().setAmount(hero.getMoney() + 500 * game.getMonster().getIntLevel());
             }
+
             CharacterLocation.removeMonster(game.getMonster());
             game.removeMonster();
         }

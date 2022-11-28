@@ -69,4 +69,5 @@ public class Market {
             this.setState(new SellingState(), hero);
         }
     }
+
 }

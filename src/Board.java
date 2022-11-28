@@ -105,6 +105,7 @@ public class Board {
      * @return String of board
      */
     public String printBoardWithCharacter() {
+        Utility.newLine();
         System.out.println("Game Board ");
         Set<Position> heroPositions = CharacterLocation.getheroLocation();
 //        System.out.println(heroPositions);

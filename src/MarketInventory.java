@@ -132,4 +132,31 @@ public class MarketInventory implements Cloneable{
     public boolean hasArmors(){
         return (getArmors().getSize() > 0);
     }
+
+    public void printAllItems(){
+//        int counter = 0;
+        if(getArmors().getSize() > 0) {
+            System.out.println("Armors:");
+            getArmors().printItems(1);
+            Utility.newLine();
+        }
+
+        if(getWeapons().getSize() > 0) {
+            System.out.println("Weapons:");
+            getWeapons().printItems(1);
+            Utility.newLine();
+        }
+
+        if(getSpells().getSize() > 0) {
+            System.out.println("Spells:");
+            getSpells().printItems(1);
+            Utility.newLine();
+        }
+
+        if(getPotions().getSize() > 0) {
+            System.out.println("Potions:");
+            getPotions().printItems(1);
+            Utility.newLine();
+        }
+    }
 }

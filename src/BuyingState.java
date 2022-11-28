@@ -10,6 +10,7 @@ public class BuyingState implements InMarketState{
         System.out.println(hero.getName() + " Lets start shopping...");
         int counter = 0;
         Utility.newLine();
+
         System.out.println("Select your item from the list of items below: ");
 
         System.out.println("Armors:");

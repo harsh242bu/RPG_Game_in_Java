@@ -17,9 +17,10 @@ public class HeroesTurn implements TurnState{
                 MarketTile marketTile = (MarketTile) game.getGameBoard().getTile(location.getX(), location.getY());
                 Market market = marketTile.getMarket();
 
+                Utility.newLine();
                 System.out.println("You have arrived at the Market!!");
                 System.out.print("Want to go inside ?? (Y/n): ");
-                String str = Utility.inputChar();
+                String str = Utility.yesNoInput();
                 if(str.equals("y")) {
                     market.getInsideMarket(hero);
                 }
