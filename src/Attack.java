@@ -12,7 +12,6 @@ public class Attack {
         return attribute;
     }
 
-    // new changes
 
     public void setAttribute(int attribute) {
         this.attribute = attribute;
